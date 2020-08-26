@@ -1,0 +1,26 @@
+$padding: 32px;
+
+:host {
+  display: grid;
+  grid-template-areas:
+    'bracket matches'
+    'bracket results';
+  // temporary
+  grid-template-columns: 3fr 1fr;
+  gap: 16px;
+  padding: $padding;
+  height: calc(100% - 2 * #{$padding});
+  width: calc(100% - 2 * #{$padding});
+}
+
+.bracket {
+  grid-area: bracket;
+}
+
+.matches {
+  grid-area: matches;
+}
+
+.results {
+  grid-area: results;
+}

@@ -1,7 +1,11 @@
 @import 'assets/styles/_variables.scss';
+@import 'assets/styles/_responsiveness.scss';
+@import 'assets/styles/_fonts.scss';
 
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 200;
 }
