@@ -1,13 +1,15 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-title-label',
   template: `
     <h1>
-      Upcoming matches
+      {{ title }}
     </h1>
   `,
   styleUrls: ['./title-label.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TitleLabelComponent {}
+export class TitleLabelComponent {
+  @Input() title: string;
+}
