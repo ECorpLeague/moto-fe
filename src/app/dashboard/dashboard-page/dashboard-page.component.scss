@@ -13,6 +13,8 @@ $padding: 32px;
 
 .bracket {
   grid-area: bracket;
+  display: block;
+  overflow-x: auto;
 }
 
 .matches {
