@@ -2,7 +2,9 @@ $padding: 32px;
 
 :host {
   display: grid;
-  grid-template-areas: 'bracket matches';
+  grid-template-areas:
+    'tournament matches'
+    'bracket matches';
   // temporary
   grid-template-columns: 3fr 1fr;
   gap: 16px;
@@ -11,9 +13,12 @@ $padding: 32px;
   width: calc(100% - 2 * #{$padding});
 }
 
-.bracket {
+app-dashboard-tournament-info {
+  grid-area: tournament;
+}
+
+app-dashboard-bracket {
   grid-area: bracket;
-  display: block;
   overflow-x: auto;
 }
 
