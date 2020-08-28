@@ -9,6 +9,7 @@ import { DashboardResultsComponent } from './dashboard-results/dashboard-results
 import { DashboardBracketComponent } from './dashboard-bracket/dashboard-bracket.component';
 import { DashboardBracketBlockComponent } from './dashboard-bracket-block/dashboard-bracket-block.component';
 import { DashboardBracketBlockTeamComponent } from './dashboard-bracket-block-team/dashboard-bracket-block-team.component';
+import { DashboardTournamentInfoComponent } from './dashboard-tournament-info/dashboard-tournament-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardBracketBlockTeamComponent } from './dashboard-bracket-block-te
     DashboardResultsComponent,
     DashboardBracketComponent,
     DashboardBracketBlockComponent,
-    DashboardBracketBlockTeamComponent
+    DashboardBracketBlockTeamComponent,
+    DashboardTournamentInfoComponent
   ],
   imports: [CommonModule, LabelModule, NgTournamentTreeModule],
   exports: [DashboardPageComponent]

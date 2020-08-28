@@ -3,9 +3,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-dashboard-page',
   template: `
-    <div class="bracket">
-      <app-dashboard-bracket></app-dashboard-bracket>
-    </div>
+    <app-dashboard-tournament-info></app-dashboard-tournament-info>
+    <app-dashboard-bracket></app-dashboard-bracket>
     <div class="matches">
       <app-dashboard-live-matches></app-dashboard-live-matches>
       <app-dashboard-upcoming-matches
