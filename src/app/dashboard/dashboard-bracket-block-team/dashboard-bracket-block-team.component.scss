@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 180px;
+  height: 40px;
+}
+
+.name {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 16px;
+  align-items: center;
+  background-color: var(--label-background);
+  color: var(--text);
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  width: 40px;
+  color: white;
+  font-weight: 300;
+}
