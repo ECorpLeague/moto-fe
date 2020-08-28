@@ -99,7 +99,7 @@
 
   .ngtt-de__match-component-container {
     position: relative;
-    top: calc(25% + 2 * #{$ngtt-vertical-match-padding});
+    top: calc(25% + 2 * #{$ngtt-vertical-match-padding} + 1px);
   }
 
   &::before {
