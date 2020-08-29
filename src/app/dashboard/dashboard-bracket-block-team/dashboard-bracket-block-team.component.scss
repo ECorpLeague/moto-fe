@@ -1,14 +1,14 @@
 :host {
   display: grid;
   grid-template-columns: 1fr auto;
-  width: 180px;
-  height: 40px;
+  width: 11rem;
+  height: 2.5rem;
 }
 
 .name {
   display: flex;
   justify-content: flex-start;
-  padding: 0 16px;
+  padding: 0 1rem;
   align-items: center;
   background-color: var(--label-background);
   color: var(--text);
@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
-  width: 40px;
+  width: 2.5rem;
   color: white;
   font-weight: 300;
 }

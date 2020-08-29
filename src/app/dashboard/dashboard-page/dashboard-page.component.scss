@@ -1,4 +1,4 @@
-$padding: 32px;
+$padding: 2rem;
 
 :host {
   display: grid;
@@ -6,8 +6,9 @@ $padding: 32px;
     'tournament matches'
     'bracket matches';
   // temporary
-  grid-template-columns: 3fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
   padding: $padding;
   height: calc(100% - 2 * #{$padding});
   width: calc(100% - 2 * #{$padding});
@@ -19,11 +20,22 @@ app-dashboard-tournament-info {
 
 app-dashboard-bracket {
   grid-area: bracket;
-  overflow-x: auto;
+  align-self: center;
 }
 
 .matches {
   grid-area: matches;
   display: grid;
   grid-template-rows: 1fr 2fr 2fr;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 767.98px) {
+  :host {
+    grid-template-areas:
+      'tournament'
+      'matches'
+      'bracket';
+    align-items: center;
+  }
 }

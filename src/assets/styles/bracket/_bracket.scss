@@ -155,6 +155,7 @@
   }
 
   &:last-child {
+    min-width: $ngtt-match-wrapper-width + $ngtt-round-gutters;
     justify-content: flex-end;
   }
 }

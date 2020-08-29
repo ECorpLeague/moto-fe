@@ -26,12 +26,12 @@ export class DashboardBracketComponent {
         type: 'Winnerbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           },
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -39,12 +39,12 @@ export class DashboardBracketComponent {
         type: 'Loserbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           },
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -52,8 +52,8 @@ export class DashboardBracketComponent {
         type: 'Winnerbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -61,12 +61,12 @@ export class DashboardBracketComponent {
         type: 'Loserbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           },
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -74,8 +74,8 @@ export class DashboardBracketComponent {
         type: 'Loserbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -83,8 +83,8 @@ export class DashboardBracketComponent {
         type: 'Loserbracket',
         matches: [
           {
-            firstTeam: { name: 'xd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound,
@@ -92,8 +92,8 @@ export class DashboardBracketComponent {
         type: 'Final',
         matches: [
           {
-            firstTeam: { name: 'xsssd', score: 1 },
-            secondTeam: { name: 'lol', score: 1 }
+            firstTeam: { name: 'team #1', score: 2 },
+            secondTeam: { name: 'team #2', score: 1 }
           }
         ]
       } as NgttRound
