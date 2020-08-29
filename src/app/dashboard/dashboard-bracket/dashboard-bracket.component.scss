@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  width: 100%;
+  grid-template-rows: auto 1fr;
+}
+
+ngtt-double-elimination-tree {
+  overflow-x: auto;
+  padding-top: 2rem;
+  margin-right: 2rem;
+}

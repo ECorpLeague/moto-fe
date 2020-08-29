@@ -11,10 +11,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       <app-title-label [title]="'Start date'"> </app-title-label>
       <p>27.05.04</p>
     </div>
-    <div>
-      <app-title-label [title]="'Teams count'"> </app-title-label>
-      <p>8</p>
-    </div>
   `,
   styleUrls: ['./dashboard-tournament-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

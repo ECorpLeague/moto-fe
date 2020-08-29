@@ -1,6 +1,14 @@
 :host {
-  display: inline-grid;
-  grid-template-columns: repeat(3, min-content);
-  gap: 100px;
+  display: flex;
   font-size: 1.1rem;
+
+  > :first-child {
+    margin-right: 4.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :host {
+    justify-content: space-between;
+  }
 }

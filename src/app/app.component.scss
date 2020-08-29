@@ -10,4 +10,8 @@
       var(--primary-color)
     ),
     url('/assets/images/wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-y: auto;
 }
