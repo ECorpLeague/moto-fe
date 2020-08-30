@@ -215,7 +215,7 @@
     display: flex;
     flex-grow: 1;
     left: -1 * $ngtt-bracket-line-width;
-    top: calc(50% - 1px);
+    top: 50%;
     position: absolute;
     width: $ngtt-round-gutters + $ngtt-bracket-line-width;
     border-top: $ngtt-bracket-line-width solid $ngtt-line-color-main;

@@ -26,7 +26,7 @@ app-dashboard-bracket {
 .matches {
   grid-area: matches;
   display: grid;
-  grid-template-rows: 1fr 2fr 2fr;
+  grid-auto-rows: auto;
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -37,5 +37,7 @@ app-dashboard-bracket {
       'matches'
       'bracket';
     align-items: center;
+    gap: 0;
+    row-gap: 1rem;
   }
 }
