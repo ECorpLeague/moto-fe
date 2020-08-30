@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  margin: 0.4rem 0;
+}
+
+app-dashboard-bracket-block-team {
+  text-align: center;
+
+  ::ng-deep {
+    .name {
+      justify-content: center;
+    }
+  }
+}
+
+.second-team {
+  flex-direction: row-reverse;
+}

@@ -1,11 +1,20 @@
 :host {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: row;
   width: 11rem;
   height: 2.5rem;
+
+  &.loser {
+    opacity: 0.4;
+
+    .score {
+      background-color: gray;
+    }
+  }
 }
 
 .name {
+  flex: 1;
   display: flex;
   justify-content: flex-start;
   padding: 0 1rem;

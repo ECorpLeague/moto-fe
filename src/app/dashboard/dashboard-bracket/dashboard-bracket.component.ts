@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NgttTournament, NgttRound } from 'ng-tournament-tree';
+import { BestOf, BracketMatch } from '../+state/dashboard.model';
 
 @Component({
   selector: 'app-dashboard-bracket',
@@ -27,11 +28,13 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'teamName #2', score: 1 },
+            bo: BestOf.three
           },
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'teamName #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -40,11 +43,13 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           },
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -53,7 +58,8 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -62,11 +68,13 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           },
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -75,7 +83,8 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -84,7 +93,8 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound,
@@ -93,7 +103,8 @@ export class DashboardBracketComponent {
         matches: [
           {
             firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 }
+            secondTeam: { name: 'team #2', score: 1 },
+            bo: BestOf.three
           }
         ]
       } as NgttRound

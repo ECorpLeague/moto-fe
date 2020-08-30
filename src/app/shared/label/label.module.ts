@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitleLabelComponent } from './title-label/title-label.component';
-import { MatchLabelComponent } from './match-label/match-label.component';
 
 @NgModule({
-  declarations: [TitleLabelComponent, MatchLabelComponent],
+  declarations: [TitleLabelComponent],
   imports: [CommonModule],
-  exports: [TitleLabelComponent, MatchLabelComponent]
+  exports: [TitleLabelComponent]
 })
 export class LabelModule {}

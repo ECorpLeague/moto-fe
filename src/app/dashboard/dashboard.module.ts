@@ -8,8 +8,10 @@ import { DashboardLiveMatchesComponent } from './dashboard-live-matches/dashboar
 import { DashboardResultsComponent } from './dashboard-results/dashboard-results.component';
 import { DashboardBracketComponent } from './dashboard-bracket/dashboard-bracket.component';
 import { DashboardBracketBlockComponent } from './dashboard-bracket-block/dashboard-bracket-block.component';
-import { DashboardBracketBlockTeamComponent } from './dashboard-bracket-block-team/dashboard-bracket-block-team.component';
 import { DashboardTournamentInfoComponent } from './dashboard-tournament-info/dashboard-tournament-info.component';
+import { DashboardResultComponent } from './dashboard-result/dashboard-result.component';
+import { DashboardUpcomingMatchComponent } from './dashboard-upcoming-match/dashboard-upcoming-match.component';
+import { DashboardTeamComponent } from './dashboard-team/dashboard-team.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import { DashboardTournamentInfoComponent } from './dashboard-tournament-info/da
     DashboardResultsComponent,
     DashboardBracketComponent,
     DashboardBracketBlockComponent,
-    DashboardBracketBlockTeamComponent,
-    DashboardTournamentInfoComponent
+    DashboardTournamentInfoComponent,
+    DashboardResultComponent,
+    DashboardUpcomingMatchComponent,
+    DashboardTeamComponent
   ],
   imports: [CommonModule, LabelModule, NgTournamentTreeModule],
   exports: [DashboardPageComponent]
