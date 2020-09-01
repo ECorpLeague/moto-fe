@@ -1,18 +1,21 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tournament-info',
   template: `
     <div>
       <app-title-label [title]="'Tournament'"></app-title-label>
-      <p>Motoliga Sezon 5</p>
+      <p>{{ name }}</p>
     </div>
     <div>
       <app-title-label [title]="'Start date'"> </app-title-label>
-      <p>27.05.04</p>
+      <p>{{ startDate }}</p>
     </div>
   `,
   styleUrls: ['./dashboard-tournament-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardTournamentInfoComponent {}
+export class DashboardTournamentInfoComponent {
+  @Input() name: string;
+  @Input() startDate: string;
+}
