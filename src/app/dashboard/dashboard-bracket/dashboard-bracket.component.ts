@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { NgttTournament, NgttRound } from 'ng-tournament-tree';
-import { BestOf, BracketMatch } from '../+state/dashboard.model';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Tournament } from '../+state/dashboard.model';
 
 @Component({
   selector: 'app-dashboard-bracket',
@@ -21,93 +20,5 @@ import { BestOf, BracketMatch } from '../+state/dashboard.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardBracketComponent {
-  tournament: NgttTournament = {
-    rounds: [
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'teamName #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'teamName #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Final',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound
-    ]
-  };
+  @Input() tournament: Tournament;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
 import { NgTournamentTreeModule } from 'ng-tournament-tree';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { DashboardUpcomingMatchesComponent } from './dashboard-upcoming-matches/dashboard-upcoming-matches.component';
@@ -12,6 +13,10 @@ import { DashboardTournamentInfoComponent } from './dashboard-tournament-info/da
 import { DashboardResultComponent } from './dashboard-result/dashboard-result.component';
 import { DashboardUpcomingMatchComponent } from './dashboard-upcoming-match/dashboard-upcoming-match.component';
 import { DashboardTeamComponent } from './dashboard-team/dashboard-team.component';
+import {
+  DASHBOARD_FEATURE_KEY,
+  dashboardReducers
+} from './+state/dashboard.reducer';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { DashboardTeamComponent } from './dashboard-team/dashboard-team.componen
     DashboardUpcomingMatchComponent,
     DashboardTeamComponent
   ],
-  imports: [CommonModule, LabelModule, NgTournamentTreeModule],
+  imports: [
+    CommonModule,
+    StoreModule.forFeature(DASHBOARD_FEATURE_KEY, dashboardReducers),
+    LabelModule,
+    NgTournamentTreeModule
+  ],
   exports: [DashboardPageComponent]
 })
 export class DashboardModule {}
