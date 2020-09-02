@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { BestOf } from '../+state/dashboard.model';
 import { DashboardActions } from '../+state/dashboard.actions';
 import { DashboardFacade } from '../+state/dashboard.facade';
+import { SettingsFacade } from 'src/app/settings/+state/settings.facade';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,6 +18,9 @@ import { DashboardFacade } from '../+state/dashboard.facade';
         [tournament]="(dashboardFacade.currentTournament$ | async)!"
       ></app-dashboard-bracket>
     </ng-container>
+    <app-matches-column
+      *ngIf="settingsFacade.isMobile$ | async"
+    ></app-matches-column>
   `,
   styleUrls: ['./dashboard-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,7 +28,8 @@ import { DashboardFacade } from '../+state/dashboard.facade';
 export class DashboardPageComponent implements OnInit {
   constructor(
     private store: Store<any>,
-    public dashboardFacade: DashboardFacade
+    public dashboardFacade: DashboardFacade,
+    public settingsFacade: SettingsFacade
   ) {}
 
   ngOnInit(): void {
