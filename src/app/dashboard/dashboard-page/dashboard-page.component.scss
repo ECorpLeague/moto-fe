@@ -1,17 +1,11 @@
-$padding: 2rem;
-
 :host {
   display: grid;
   grid-template-areas:
-    'tournament matches'
-    'bracket matches';
-  // temporary
-  grid-template-columns: 1fr auto;
+    'tournament'
+    'bracket';
   grid-template-rows: auto 1fr;
+  height: 100%;
   gap: 1rem;
-  padding: $padding;
-  height: calc(100% - 2 * #{$padding});
-  width: calc(100% - 2 * #{$padding});
 }
 
 app-dashboard-tournament-info {
@@ -34,7 +28,6 @@ app-dashboard-bracket {
   :host {
     grid-template-areas:
       'tournament'
-      'matches'
       'bracket';
     align-items: center;
     gap: 0;

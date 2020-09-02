@@ -5,14 +5,14 @@ import { isLoser } from '../+state/utilities';
 @Component({
   selector: 'app-dashboard-bracket-block',
   template: `
-    <app-dashboard-team
+    <app-team-block
       [team]="match.firstTeam"
       [isLoser]="isLoser(match.firstTeam, match)"
-    ></app-dashboard-team>
-    <app-dashboard-team
+    ></app-team-block>
+    <app-team-block
       [team]="match.secondTeam"
       [isLoser]="isLoser(match.secondTeam, match)"
-    ></app-dashboard-team>
+    ></app-team-block>
   `,
   styleUrls: ['./dashboard-bracket-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

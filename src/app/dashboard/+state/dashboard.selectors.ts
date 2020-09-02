@@ -1,4 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { Dictionary } from '@ngrx/entity';
 import { tournamentsSelectors } from './tournaments.reducer';
 import { Tournament } from './dashboard.model';
 import { DashboardState, DASHBOARD_FEATURE_KEY } from './dashboard.reducer';
@@ -17,13 +18,25 @@ const selectAllTournaments = createSelector(
   tournamentsSelectors.selectAll
 );
 
-const selectLastTournament = createSelector(
-  selectAllTournaments,
-  (tournaments: Tournament[]) =>
-    tournaments && tournaments[0] ? tournaments[0] : null
+const selectTournamentEntities = createSelector(
+  selectTournamentsState,
+  tournamentsSelectors.selectEntities
+);
+
+const selectCurrentTournamentId = createSelector(
+  selectTournamentsState,
+  tournamentsSelectors.selectCurrentTournamentId
+);
+
+const selectCurrentTournament = createSelector(
+  selectTournamentEntities,
+  selectCurrentTournamentId,
+  (entities: Dictionary<Tournament>, currentId: string | null) =>
+    currentId && entities[currentId] ? entities[currentId]! : null
 );
 
 export const DashboardSelectors = {
   selectAllTournaments,
-  selectLastTournament
+  selectCurrentTournamentId,
+  selectCurrentTournament
 };

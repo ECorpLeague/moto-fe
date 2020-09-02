@@ -1,5 +1,8 @@
 :host {
   display: grid;
+  grid-template-areas:
+    'header'
+    'main';
   grid-template-rows: auto 1fr;
   height: 100%;
   width: 100%;
@@ -14,4 +17,27 @@
   background-attachment: fixed;
   background-size: cover;
   overflow-y: auto;
+}
+
+app-header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  padding: 2rem;
+  gap: 1rem;
+  width: calc(100% - 4rem);
+  height: calc(100% - 4rem);
+  grid-template-areas: 'content matches';
+  grid-template-columns: 1fr auto;
+}
+
+.content {
+  grid-area: content;
+}
+
+app-matches-column {
+  grid-area: matches;
 }

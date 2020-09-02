@@ -8,21 +8,14 @@ import { DashboardFacade } from '../+state/dashboard.facade';
 @Component({
   selector: 'app-dashboard-page',
   template: `
-    <ng-container *ngIf="dashboardFacade.lastTournament$ | async">
+    <ng-container *ngIf="dashboardFacade.currentTournament$ | async">
       <app-dashboard-tournament-info
-        [name]="(dashboardFacade.lastTournament$ | async)!.name"
-        [startDate]="(dashboardFacade.lastTournament$ | async)!.startDate"
+        [name]="(dashboardFacade.currentTournament$ | async)!.name"
+        [startDate]="(dashboardFacade.currentTournament$ | async)!.startDate"
       ></app-dashboard-tournament-info>
       <app-dashboard-bracket
-        [tournament]="(dashboardFacade.lastTournament$ | async)!"
+        [tournament]="(dashboardFacade.currentTournament$ | async)!"
       ></app-dashboard-bracket>
-      <div class="matches">
-        <app-dashboard-live-matches></app-dashboard-live-matches>
-        <app-dashboard-upcoming-matches
-          class="upcoming-matches"
-        ></app-dashboard-upcoming-matches>
-        <app-dashboard-results></app-dashboard-results>
-      </div>
     </ng-container>
   `,
   styleUrls: ['./dashboard-page.component.scss'],
@@ -36,101 +29,107 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(
-      DashboardActions.tournamentsReceived({
+      DashboardActions.tournamentsHandlesReceived({
         tournaments: [
-          {
-            id: 'dbb22',
-            name: 'Motorola Season 5',
-            startDate: '24/05/2020',
-            rounds: [
-              {
-                type: 'Winnerbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'teamName #2', score: 1 },
-                    bo: BestOf.three
-                  },
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'teamName #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Winnerbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Loserbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  },
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Loserbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  },
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Loserbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Loserbracket',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound,
-              {
-                type: 'Final',
-                matches: [
-                  {
-                    firstTeam: { name: 'team #1', score: 2 },
-                    secondTeam: { name: 'team #2', score: 1 },
-                    bo: BestOf.three
-                  }
-                ]
-              } as NgttRound
-            ]
-          }
+          { id: 'dbb22', name: 'Motoliga Season 5' },
+          { id: 'dbb33', name: 'Motoliga Season 4' }
         ]
+      })
+    );
+    this.store.dispatch(
+      DashboardActions.tournamentReceived({
+        tournament: {
+          id: 'dbb22',
+          name: 'Motorola Season 5',
+          startDate: '24/05/2020',
+          rounds: [
+            {
+              type: 'Winnerbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'teamName #2', score: 1 },
+                  bo: BestOf.three
+                },
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'teamName #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Winnerbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Loserbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                },
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Loserbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                },
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Loserbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Loserbracket',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound,
+            {
+              type: 'Final',
+              matches: [
+                {
+                  firstTeam: { name: 'team #1', score: 2 },
+                  secondTeam: { name: 'team #2', score: 1 },
+                  bo: BestOf.three
+                }
+              ]
+            } as NgttRound
+          ]
+        }
       })
     );
   }

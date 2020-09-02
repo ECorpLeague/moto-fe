@@ -4,18 +4,18 @@ import {
   Input,
   HostBinding
 } from '@angular/core';
-import { BracketTeam } from '../+state/dashboard.model';
+import { BracketTeam } from 'src/app/dashboard/+state/dashboard.model';
 
 @Component({
-  selector: 'app-dashboard-team',
+  selector: 'app-team-block',
   template: `
     <div class="name">{{ team.name }}</div>
     <div class="score">{{ team.score }}</div>
   `,
-  styleUrls: ['./dashboard-team.component.scss'],
+  styleUrls: ['./team-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardTeamComponent {
+export class TeamBlockComponent {
   @Input() team: BracketTeam;
 
   @HostBinding('class.loser') @Input() isLoser: boolean;

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-upcoming-match',
+  selector: 'app-upcoming-match',
   template: `
     <div class="team">team #1</div>
     <div class="date">
@@ -10,7 +10,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     </div>
     <div class="team">team #2</div>
   `,
-  styleUrls: ['./dashboard-upcoming-match.component.scss'],
+  styleUrls: ['./upcoming-match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardUpcomingMatchComponent {}
+export class UpcomingMatchComponent {}
