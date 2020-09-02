@@ -54,6 +54,8 @@
     "@ngrx/entity": "^10.0.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
+    "@types/lodash": "^4.14.161",
+    "lodash": "^4.17.20",
     "ng-tournament-tree": "^2.0.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

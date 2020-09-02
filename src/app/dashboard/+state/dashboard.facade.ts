@@ -14,7 +14,7 @@ export class DashboardFacade {
     DashboardSelectors.selectAllTournaments
   );
 
-  lastTournament$: Observable<Tournament | null> = this.store.select(
-    DashboardSelectors.selectLastTournament
+  currentTournament$: Observable<Tournament | null> = this.store.select(
+    DashboardSelectors.selectCurrentTournament
   );
 }

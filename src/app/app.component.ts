@@ -4,8 +4,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-root',
   template: `
     <app-header></app-header>
-    <div>
-      <router-outlet></router-outlet>
+    <div class="main">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+      <app-matches-column></app-matches-column>
     </div>
   `,
   styleUrls: ['./app.component.scss'],

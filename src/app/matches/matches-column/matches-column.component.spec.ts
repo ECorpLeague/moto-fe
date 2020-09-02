@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardMatchesComponent } from './dashboard-upcoming-matches.component';
+import { MatchesColumnComponent } from './matches-column.component';
 
-describe('DashboardMatchesComponent', () => {
-  let component: DashboardMatchesComponent;
-  let fixture: ComponentFixture<DashboardMatchesComponent>;
+describe('MatchesColumnComponent', () => {
+  let component: MatchesColumnComponent;
+  let fixture: ComponentFixture<MatchesColumnComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardMatchesComponent]
+      declarations: [MatchesColumnComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardMatchesComponent);
+    fixture = TestBed.createComponent(MatchesColumnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

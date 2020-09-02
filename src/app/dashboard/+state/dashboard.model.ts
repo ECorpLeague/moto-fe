@@ -25,3 +25,8 @@ export interface Tournament {
   startDate: string;
   rounds: NgttRound[];
 }
+
+export interface TournamentHandle {
+  id: string;
+  name: string;
+}

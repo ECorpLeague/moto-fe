@@ -1,11 +1,17 @@
 import { createAction, props } from '@ngrx/store';
-import { Tournament } from './dashboard.model';
+import { Tournament, TournamentHandle } from './dashboard.model';
 
-const tournamentsReceived = createAction(
-  '[App] Tournaments Received',
-  props<{ tournaments: Tournament[] }>()
+const tournamentsHandlesReceived = createAction(
+  '[App] Tournaments handles received',
+  props<{ tournaments: TournamentHandle[] }>()
+);
+
+const tournamentReceived = createAction(
+  '[App] Tournament Received',
+  props<{ tournament: Tournament }>()
 );
 
 export const DashboardActions = {
-  tournamentsReceived
+  tournamentsHandlesReceived,
+  tournamentReceived
 };

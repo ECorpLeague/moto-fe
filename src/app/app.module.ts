@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HeaderModule } from './header/header.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { MatchesModule } from './matches/matches.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
-    DashboardModule,
+    MatchesModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -22,7 +23,7 @@ import { environment } from 'src/environments/environment';
       logOnly: environment.production
     })
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

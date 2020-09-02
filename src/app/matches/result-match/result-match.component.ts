@@ -1,24 +1,24 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { isLoser } from '../+state/utilities';
-import { BestOf } from '../+state/dashboard.model';
+import { isLoser } from 'src/app/dashboard/+state/utilities';
+import { BestOf } from 'src/app/dashboard/+state/dashboard.model';
 
 @Component({
-  selector: 'app-dashboard-result',
+  selector: 'app-result-match',
   template: `
-    <app-dashboard-team
+    <app-team-block
       [team]="match.firstTeam"
       [isLoser]="isLoser(match.firstTeam, match)"
-    ></app-dashboard-team>
-    <app-dashboard-team
+    ></app-team-block>
+    <app-team-block
       class="second-team"
       [team]="match.secondTeam"
       [isLoser]="isLoser(match.secondTeam, match)"
-    ></app-dashboard-team>
+    ></app-team-block>
   `,
-  styleUrls: ['./dashboard-result.component.scss'],
+  styleUrls: ['./result-match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardResultComponent {
+export class ResultMatchComponent {
   isLoser = isLoser;
   match = {
     id: '1',
