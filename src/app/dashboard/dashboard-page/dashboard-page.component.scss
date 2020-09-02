@@ -17,19 +17,21 @@ app-dashboard-bracket {
   align-self: center;
 }
 
-.matches {
-  grid-area: matches;
-  display: grid;
-  grid-auto-rows: auto;
-}
-
 @media (max-width: 749.98px) {
   :host {
     grid-template-areas:
       'tournament'
+      'matches'
       'bracket';
     align-items: center;
     gap: 0;
     row-gap: 1rem;
+  }
+
+  app-matches-column ::ng-deep {
+    app-upcoming-match,
+    app-result-match {
+      align-self: center;
+    }
   }
 }

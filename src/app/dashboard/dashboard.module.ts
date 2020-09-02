@@ -13,6 +13,7 @@ import {
 } from './+state/dashboard.reducer';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TeamBlockModule } from '../shared/team-block/team-block.module';
+import { MatchesModule } from '../matches/matches.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TeamBlockModule } from '../shared/team-block/team-block.module';
     StoreModule.forFeature(DASHBOARD_FEATURE_KEY, dashboardReducers),
     LabelModule,
     TeamBlockModule,
+    MatchesModule,
     NgTournamentTreeModule
   ],
   exports: [DashboardPageComponent]
