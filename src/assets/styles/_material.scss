@@ -1,0 +1,92 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+//color theme
+$primary-palette: (
+  50: #e4e5e7,
+  100: #bbbec2,
+  200: #8e9399,
+  300: #616770,
+  400: #3f4752,
+  500: #1d2633,
+  600: #1a222e,
+  700: #151c27,
+  800: #111720,
+  900: #0a0d14,
+  A100: #5887ff,
+  A200: #2563ff,
+  A400: #0045f1,
+  A700: #003dd7,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #fff,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #fff,
+    A400: #fff,
+    A700: #fff
+  )
+);
+
+$secondary-palette: (
+  50: #ffeeeb,
+  100: #ffd4ce,
+  200: #ffb8ad,
+  300: #ff9c8c,
+  400: #ff8674,
+  500: #ff715b,
+  600: #ff6953,
+  700: #ff5e49,
+  800: #ff5440,
+  900: #ff422f,
+  A100: #fff,
+  A200: #fff,
+  A400: #ffddda,
+  A700: #ffc6c1,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000
+  )
+);
+
+$motocsgo-primary: mat-palette($primary-palette);
+$motocsgo-accent: mat-palette($secondary-palette);
+$motocsgo-warn: mat-palette($mat-red);
+
+$motocsgo-theme: mat-light-theme(
+  (
+    color: (
+      primary: $motocsgo-primary,
+      accent: $motocsgo-accent,
+      warn: $motocsgo-warn
+    )
+  )
+);
+
+// fonts
+$custom-typography: mat-typography-config(
+  $font-family: 'Rajdhani'
+);
+
+@include angular-material-typography($custom-typography);
+@include angular-material-theme($motocsgo-theme);

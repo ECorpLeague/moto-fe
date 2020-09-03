@@ -1,0 +1,57 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 100%;
+}
+
+mat-toolbar {
+  background: inherit;
+
+  &.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 3.25rem;
+    background-color: var(--header-background);
+    border-bottom: 1px var(--secondary-color) solid;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    padding: 0 1rem;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text);
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: var(--label-background);
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    margin-right: 1rem;
+
+    .text {
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: normal;
+    }
+
+    img {
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-right: 0.6rem;
+    }
+  }
+}
