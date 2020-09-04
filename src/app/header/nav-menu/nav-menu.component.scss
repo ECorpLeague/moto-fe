@@ -1,3 +1,9 @@
+:host {
+  position: sticky;
+  width: 100%;
+  z-index: 10;
+}
+
 .sidenav-container {
   height: 100%;
 }
@@ -6,8 +12,14 @@
   width: 100%;
 }
 
+mat-sidenav-content {
+  overflow: hidden;
+}
+
 mat-toolbar {
+  display: flex;
   background: inherit;
+  padding: 0;
 
   &.mat-primary {
     position: sticky;
@@ -28,8 +40,13 @@ mat-toolbar {
     font-weight: 300;
     color: var(--text);
     text-transform: uppercase;
+    text-decoration: none;
 
-    &:hover {
+    &.active {
+      background-color: var(--secondary-color);
+    }
+
+    &:hover:not(.active) {
       background-color: var(--label-background);
     }
   }
@@ -38,7 +55,7 @@ mat-toolbar {
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    margin-right: 1rem;
+    padding: 0 2rem;
 
     .text {
       color: var(--text);
@@ -53,5 +70,21 @@ mat-toolbar {
       height: 1.8rem;
       margin-right: 0.6rem;
     }
+  }
+}
+
+.menu-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 2rem;
+
+  ::ng-deep .mat-button-wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
   }
 }

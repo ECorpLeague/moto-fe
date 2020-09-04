@@ -16,10 +16,9 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  overflow-y: auto;
 }
 
-app-header {
+app-nav-menu {
   grid-area: header;
 }
 
@@ -32,6 +31,7 @@ app-header {
   height: calc(100% - 4rem);
   grid-template-areas: 'content matches';
   grid-template-columns: 1fr auto;
+  overflow-y: auto;
 }
 
 .content {

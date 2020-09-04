@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { SettingsFacade } from 'src/app/settings/+state/settings.facade';
+import { SettingsFacade } from '../../settings/+state/settings.facade';
 
 @Component({
   selector: 'app-nav-menu',
@@ -14,23 +14,30 @@ import { SettingsFacade } from 'src/app/settings/+state/settings.facade';
         "
         [mode]="(settingsFacade.isMobile$ | async) ? 'over' : 'side'"
       >
-        <mat-toolbar>Menu</mat-toolbar>
-        <a (click)="sidenav.close()">xd</a>
+        <mat-toolbar
+          ><div>Menu</div>
+          <button mat-icon-button (click)="sidenav.close()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-toolbar>
         <mat-nav-list>
           <ng-container [ngTemplateOutlet]="list"></ng-container>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
         <mat-toolbar color="primary">
-          <a class="logo">
+          <a class="logo" [routerLink]="['/']">
             <img src="/assets/images/motologo.png" />
             <div class="text">Motoliga</div>
           </a>
-          <ng-container [ngTemplateOutlet]="list"></ng-container>
+          <ng-container
+            *ngIf="!(settingsFacade.isMobile$ | async)"
+            [ngTemplateOutlet]="list"
+          ></ng-container>
           <button
             *ngIf="settingsFacade.isMobile$ | async"
             type="button"
-            aria-label="Toggle sidenav"
+            class="menu-button"
             mat-icon-button
             (click)="sidenav.toggle()"
           >
@@ -41,9 +48,18 @@ import { SettingsFacade } from 'src/app/settings/+state/settings.facade';
     </mat-sidenav-container>
 
     <ng-template #list>
-      <a>About</a>
-      <a>Bracket</a>
-      <a>Hall of glory</a>
+      <a
+        [routerLink]="['/']"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >About</a
+      >
+      <a
+        [routerLink]="['/bracket']"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Bracket</a
+      >
     </ng-template>
   `,
   styleUrls: ['./nav-menu.component.scss'],
