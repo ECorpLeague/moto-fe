@@ -14,8 +14,12 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
         "
         [mode]="(settingsFacade.isMobile$ | async) ? 'over' : 'side'"
       >
-        <mat-toolbar>Menu</mat-toolbar>
-        <a (click)="sidenav.close()">close</a>
+        <mat-toolbar
+          ><div>Menu</div>
+          <button mat-icon-button (click)="sidenav.close()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-toolbar>
         <mat-nav-list>
           <ng-container [ngTemplateOutlet]="list"></ng-container>
         </mat-nav-list>
