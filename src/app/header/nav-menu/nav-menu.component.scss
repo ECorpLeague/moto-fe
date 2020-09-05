@@ -4,12 +4,54 @@
   z-index: 10;
 }
 
-.sidenav-container {
+mat-sidenav-container {
   height: 100%;
 }
 
-.sidenav {
-  width: 100%;
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+
+  &.active {
+    background-color: var(--secondary-color);
+  }
+
+  &:hover:not(.active) {
+    background-color: var(--label-background);
+  }
+}
+
+mat-sidenav {
+  width: 40%;
+  background-color: var(--header-background);
+  border-right: 1px solid var(--secondary-color);
+
+  ::ng-deep .mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  .sidenav-logo {
+    padding: 5rem 0;
+    width: 50%;
+    align-self: center;
+  }
+
+  .sidenav-btn-close {
+    margin-top: 4rem;
+    align-self: center;
+
+    mat-icon {
+      font-size: 2rem;
+      color: var(--secondary-color);
+    }
+  }
 }
 
 mat-sidenav-content {
@@ -18,17 +60,13 @@ mat-sidenav-content {
 
 mat-toolbar {
   display: flex;
-  background: inherit;
   padding: 0;
-
-  &.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    height: 3.25rem;
-    background-color: var(--header-background);
-    border-bottom: 1px var(--secondary-color) solid;
-  }
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 3.25rem;
+  background-color: var(--header-background);
+  border-bottom: 1px var(--secondary-color) solid;
 
   a {
     display: flex;
@@ -38,27 +76,15 @@ mat-toolbar {
     padding: 0 1rem;
     font-size: 1.05rem;
     font-weight: 300;
-    color: var(--text);
-    text-transform: uppercase;
-    text-decoration: none;
-
-    &.active {
-      background-color: var(--secondary-color);
-    }
-
-    &:hover:not(.active) {
-      background-color: var(--label-background);
-    }
   }
 
-  .logo {
+  .toolbar-logo {
     display: flex;
     align-items: center;
     text-transform: uppercase;
     padding: 0 2rem;
 
     .text {
-      color: var(--text);
       font-size: 1.15rem;
       font-weight: 400;
       letter-spacing: 1px;
@@ -73,7 +99,7 @@ mat-toolbar {
   }
 }
 
-.menu-button {
+.btn-menu {
   height: 2.5rem;
   width: 2.5rem;
   display: flex;
@@ -86,5 +112,9 @@ mat-toolbar {
     display: flex;
     height: 100%;
     align-items: center;
+  }
+
+  mat-icon {
+    color: var(--text);
   }
 }

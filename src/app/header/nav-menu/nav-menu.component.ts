@@ -1,32 +1,32 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { SettingsFacade } from '../../settings/+state/settings.facade';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-nav-menu',
   template: `
-    <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav-container>
       <mat-sidenav
         #sidenav
-        class="sidenav"
         fixedInViewport
         [attr.role]="
           (settingsFacade.isMobile$ | async) ? 'dialog' : 'navigation'
         "
         [mode]="(settingsFacade.isMobile$ | async) ? 'over' : 'side'"
       >
-        <mat-toolbar
-          ><div>Menu</div>
-          <button mat-icon-button (click)="sidenav.close()">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </mat-toolbar>
-        <mat-nav-list>
-          <ng-container [ngTemplateOutlet]="list"></ng-container>
-        </mat-nav-list>
+        <img class="sidenav-logo" src="/assets/images/motologo.png" />
+        <ng-container [ngTemplateOutlet]="list"></ng-container>
+        <button
+          mat-icon-button
+          class="sidenav-btn-close"
+          (click)="closeSidenav()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-sidenav>
       <mat-sidenav-content>
-        <mat-toolbar color="primary">
-          <a class="logo" [routerLink]="['/']">
+        <mat-toolbar>
+          <a class="toolbar-logo" [routerLink]="['/']">
             <img src="/assets/images/motologo.png" />
             <div class="text">Motoliga</div>
           </a>
@@ -36,12 +36,11 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
           ></ng-container>
           <button
             *ngIf="settingsFacade.isMobile$ | async"
-            type="button"
-            class="menu-button"
+            class="btn-menu"
             mat-icon-button
-            (click)="sidenav.toggle()"
+            (click)="toggleSidenav()"
           >
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
           </button>
         </mat-toolbar>
       </mat-sidenav-content>
@@ -52,12 +51,14 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
         [routerLink]="['/']"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeSidenav()"
         >About</a
       >
       <a
         [routerLink]="['/bracket']"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeSidenav()"
         >Bracket</a
       >
     </ng-template>
@@ -66,5 +67,14 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavMenuComponent {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   constructor(public settingsFacade: SettingsFacade) {}
+
+  closeSidenav(): void {
+    this.sidenav.close();
+  }
+
+  toggleSidenav(): void {
+    this.sidenav.toggle();
+  }
 }
