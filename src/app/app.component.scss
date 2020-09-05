@@ -32,6 +32,11 @@ app-nav-menu {
   grid-template-areas: 'content matches';
   grid-template-columns: 1fr auto;
   overflow-y: auto;
+
+  @media (max-width: 749.98px) {
+    grid-template-areas: 'content';
+    grid-template-columns: 1fr;
+  }
 }
 
 .content {
