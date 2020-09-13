@@ -18,6 +18,7 @@ import { SettingsActions } from 'src/app/settings/+state/settings.actions';
         [mode]="(settingsFacade.isMobile$ | async) ? 'over' : 'side'"
       >
         <img class="sidenav-logo" src="/assets/images/motologo.png" />
+        <ng-container [ngTemplateOutlet]="language"></ng-container>
         <ng-container [ngTemplateOutlet]="list"></ng-container>
         <button
           mat-icon-button
@@ -38,22 +39,10 @@ import { SettingsActions } from 'src/app/settings/+state/settings.actions';
             [ngTemplateOutlet]="list"
           ></ng-container>
           <div class="right-items">
-            <div class="languages">
-              <svg-icon
-                key="poland"
-                [class.inactive]="
-                  (settingsFacade.activeLanguage$ | async) !== 'pl'
-                "
-                (click)="setLanguage(Language.PL)"
-              ></svg-icon>
-              <svg-icon
-                key="unitedKingdom"
-                [class.inactive]="
-                  (settingsFacade.activeLanguage$ | async) !== 'en'
-                "
-                (click)="setLanguage(Language.EN)"
-              ></svg-icon>
-            </div>
+            <ng-container
+              *ngIf="!(settingsFacade.isMobile$ | async)"
+              [ngTemplateOutlet]="language"
+            ></ng-container>
             <button
               *ngIf="settingsFacade.isMobile$ | async"
               class="btn-menu"
@@ -84,6 +73,20 @@ import { SettingsActions } from 'src/app/settings/+state/settings.actions';
         >{{ 'HEADER.BRACKET' | transloco }}</a
       >
     </ng-template>
+
+    <ng-template #language>
+      <div class="languages">
+        <svg-icon
+          key="poland"
+          [class.inactive]="(settingsFacade.activeLanguage$ | async) !== 'pl'"
+          (click)="setLanguage(Language.PL)"
+        ></svg-icon>
+        <svg-icon
+          key="unitedKingdom"
+          [class.inactive]="(settingsFacade.activeLanguage$ | async) !== 'en'"
+          (click)="setLanguage(Language.EN)"
+        ></svg-icon></div
+    ></ng-template>
   `,
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

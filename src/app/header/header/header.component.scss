@@ -22,6 +22,22 @@ a {
   }
 }
 
+.languages {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1rem;
+  align-items: center;
+
+  svg-icon {
+    display: flex;
+    cursor: pointer;
+
+    &.inactive {
+      filter: grayscale(100%);
+    }
+  }
+}
+
 mat-sidenav {
   width: 40%;
   background-color: var(--header-background);
@@ -38,7 +54,7 @@ mat-sidenav {
   }
 
   .sidenav-logo {
-    padding: 5rem 0;
+    padding-top: 5rem;
     width: 50%;
     align-self: center;
   }
@@ -50,6 +66,16 @@ mat-sidenav {
     mat-icon {
       font-size: 2rem;
       color: var(--secondary-color);
+    }
+  }
+
+  .languages {
+    padding: 3rem 0;
+    justify-items: center;
+    column-gap: 0.5rem;
+
+    svg-icon {
+      font-size: 3rem;
     }
   }
 }
@@ -122,22 +148,6 @@ mat-toolbar {
 
     mat-icon {
       color: var(--text);
-    }
-  }
-
-  .languages {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 1rem;
-    align-items: center;
-
-    svg-icon {
-      display: flex;
-      cursor: pointer;
-
-      &.inactive {
-        filter: grayscale(100%);
-      }
     }
   }
 }
