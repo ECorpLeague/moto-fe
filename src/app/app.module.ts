@@ -12,7 +12,8 @@ import { MatchesModule } from './matches/matches.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { environment } from 'src/environments/environment';
+import { TranslateModule } from './settings/translate.module';
+import { environment } from '../environments/environment';
 import icons from '../assets/svg/svg-icons';
 
 @NgModule({
@@ -34,7 +35,8 @@ import icons from '../assets/svg/svg-icons';
     BrowserAnimationsModule,
     SvgIconsModule.forRoot({
       icons
-    })
+    }),
+    TranslateModule
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

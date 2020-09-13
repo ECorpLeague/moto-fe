@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NewsColumnComponent } from './news-column/news-column.component';
 import { LabelModule } from '../shared/label/label.module';
 import { NewsCardComponent } from './news-card/news-card.component';
+import { TranslateModule } from '../settings/translate.module';
 
 @NgModule({
   declarations: [HomePageComponent, NewsColumnComponent, NewsCardComponent],
@@ -17,7 +18,8 @@ import { NewsCardComponent } from './news-card/news-card.component';
     MatButtonModule,
     LabelModule,
     SvgIconsModule,
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ],
   exports: [HomePageComponent]
 })

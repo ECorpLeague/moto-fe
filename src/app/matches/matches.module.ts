@@ -8,6 +8,7 @@ import { LabelModule } from '../shared/label/label.module';
 import { UpcomingMatchComponent } from './upcoming-match/upcoming-match.component';
 import { ResultMatchComponent } from './result-match/result-match.component';
 import { TeamBlockModule } from '../shared/team-block/team-block.module';
+import { TranslateModule } from '../settings/translate.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TeamBlockModule } from '../shared/team-block/team-block.module';
     UpcomingMatchComponent,
     ResultMatchComponent
   ],
-  imports: [CommonModule, LabelModule, TeamBlockModule],
+  imports: [CommonModule, LabelModule, TeamBlockModule, TranslateModule],
   exports: [MatchesColumnComponent]
 })
 export class MatchesModule {}

@@ -14,6 +14,7 @@ import {
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TeamBlockModule } from '../shared/team-block/team-block.module';
 import { MatchesModule } from '../matches/matches.module';
+import { TranslateModule } from '../settings/translate.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatchesModule } from '../matches/matches.module';
     LabelModule,
     TeamBlockModule,
     MatchesModule,
-    NgTournamentTreeModule
+    NgTournamentTreeModule,
+    TranslateModule
   ],
   exports: [DashboardPageComponent]
 })

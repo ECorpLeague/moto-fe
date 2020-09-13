@@ -22,7 +22,7 @@ import { NewsColumnComponent } from '../news-column/news-column.component';
           czyli dobrze się bawić.
         </p>
         <button mat-stroked-button color="accent">
-          Read more
+          {{ 'HOME.READ_MORE' | transloco }}
         </button>
         <div class="contact">
           <svg-icon key="steam"></svg-icon>
