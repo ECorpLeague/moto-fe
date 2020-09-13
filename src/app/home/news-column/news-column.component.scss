@@ -1,0 +1,30 @@
+app-title-label {
+  margin-bottom: 0.4rem;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 2rem;
+
+  app-news-card {
+    border-bottom: 1px var(--label-background) solid;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+@media (max-width: 749.98px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
