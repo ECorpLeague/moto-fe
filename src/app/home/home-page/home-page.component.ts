@@ -42,8 +42,7 @@ import { NewsColumnComponent } from '../news-column/news-column.component';
         <mat-icon>arrow_forward_ios</mat-icon>
       </button>
     </div>
-    <app-news-column #news> </app-news-column>
-    <!-- <youtube-player videoId="7vUCGVVjsv4"></youtube-player> -->
+    <app-news-column #news></app-news-column>
   `,
   styleUrls: ['./home-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
