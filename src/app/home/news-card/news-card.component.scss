@@ -1,0 +1,49 @@
+:host {
+  display: grid;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+.date {
+  color: var(--text-40);
+}
+
+.title {
+  font-size: 1.6rem;
+}
+
+.text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  /* to specify the number of lines you want the text to run through... */
+  -webkit-line-clamp: 3;
+
+  /* hide the overflowing text, i.e, texts that did not fit in to the box */
+  overflow: hidden;
+  color: var(--text-70);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    font-size: 0.85rem;
+    color: var(--text);
+    border-radius: 1px;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+
+    ::ng-deep .mat-button-focus-overlay {
+      background: none;
+    }
+  }
+}

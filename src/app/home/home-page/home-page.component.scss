@@ -1,0 +1,121 @@
+:host {
+  display: grid;
+  grid-template-columns: 8fr 3fr;
+  column-gap: 5rem;
+  height: 100%;
+}
+
+.front {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  padding: 0 3rem;
+  text-align: center;
+
+  .text {
+    text-align: center;
+
+    .title {
+      font-size: 7rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin: 0;
+      line-height: 6rem;
+    }
+
+    .subtitle {
+      margin: 0 0 0 0.4rem;
+      font-size: 1.88rem;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+    }
+
+    .description {
+      color: var(--text);
+      margin-left: 0.4rem;
+      padding: 1rem 0;
+    }
+
+    button {
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 0.5rem 2.5rem;
+      text-transform: uppercase;
+      border: 1px var(--secondary-color) solid;
+      border-radius: 1px;
+      color: var(--text);
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 3rem;
+
+      svg-icon {
+        font-size: 2.5rem;
+
+        &.youtube {
+          font-size: 3.5rem;
+        }
+
+        &:first-child {
+          margin-right: 6rem;
+        }
+
+        ::ng-deep g {
+          fill: var(--secondary-color);
+        }
+      }
+    }
+  }
+
+  .scroll-to-bottom-btn {
+    position: absolute;
+    bottom: 2rem;
+    justify-self: center;
+    animation: uparrow 0.6s infinite alternate ease-in-out;
+
+    mat-icon {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  :host {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, 1fr) 1fr;
+  }
+
+  .front .text {
+    .title {
+      font-size: 5rem;
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+    }
+  }
+}
+
+@media (max-width: 749.98px) {
+  :host {
+    // 5.25 = header + padding
+    grid-template-rows: calc(100vh - 5.25rem) auto;
+  }
+}
+
+@keyframes uparrow {
+  0% {
+    -webkit-transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  100% {
+    -webkit-transform: translateY(-0.4em);
+    opacity: 0.9;
+  }
+}
