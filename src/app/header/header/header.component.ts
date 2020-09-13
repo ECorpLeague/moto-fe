@@ -1,9 +1,12 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { SettingsFacade } from '../../settings/+state/settings.facade';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Store } from '@ngrx/store';
+import { Language } from '../../settings/+state/settings.model';
+import { SettingsFacade } from '../../settings/+state/settings.facade';
+import { SettingsActions } from 'src/app/settings/+state/settings.actions';
 
 @Component({
-  selector: 'app-nav-menu',
+  selector: 'app-header',
   template: `
     <mat-sidenav-container>
       <mat-sidenav
@@ -34,14 +37,32 @@ import { MatSidenav } from '@angular/material/sidenav';
             *ngIf="!(settingsFacade.isMobile$ | async)"
             [ngTemplateOutlet]="list"
           ></ng-container>
-          <button
-            *ngIf="settingsFacade.isMobile$ | async"
-            class="btn-menu"
-            mat-icon-button
-            (click)="toggleSidenav()"
-          >
-            <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
-          </button>
+          <div class="right-items">
+            <div class="languages">
+              <svg-icon
+                key="poland"
+                [class.inactive]="
+                  (settingsFacade.activeLanguage$ | async) !== 'pl'
+                "
+                (click)="setLanguage(Language.PL)"
+              ></svg-icon>
+              <svg-icon
+                key="unitedKingdom"
+                [class.inactive]="
+                  (settingsFacade.activeLanguage$ | async) !== 'en'
+                "
+                (click)="setLanguage(Language.EN)"
+              ></svg-icon>
+            </div>
+            <button
+              *ngIf="settingsFacade.isMobile$ | async"
+              class="btn-menu"
+              mat-icon-button
+              (click)="toggleSidenav()"
+            >
+              <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+            </button>
+          </div>
         </mat-toolbar>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -52,23 +73,29 @@ import { MatSidenav } from '@angular/material/sidenav';
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
         (click)="closeSidenav()"
-        >About</a
+      >
+        {{ 'HEADER.HOME' | transloco }}</a
       >
       <a
         [routerLink]="['/bracket']"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
         (click)="closeSidenav()"
-        >Bracket</a
+        >{{ 'HEADER.BRACKET' | transloco }}</a
       >
     </ng-template>
   `,
-  styleUrls: ['./nav-menu.component.scss'],
+  styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavMenuComponent {
+export class HeaderComponent {
+  Language = Language;
   @ViewChild('sidenav') sidenav: MatSidenav;
-  constructor(public settingsFacade: SettingsFacade) {}
+
+  constructor(
+    public settingsFacade: SettingsFacade,
+    private store: Store<any>
+  ) {}
 
   closeSidenav(): void {
     this.sidenav.close();
@@ -76,5 +103,9 @@ export class NavMenuComponent {
 
   toggleSidenav(): void {
     this.sidenav.toggle();
+  }
+
+  setLanguage(language: Language): void {
+    this.store.dispatch(SettingsActions.languageChanged({ language }));
   }
 }

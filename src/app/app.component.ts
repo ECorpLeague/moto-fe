@@ -3,7 +3,7 @@ import { SettingsFacade } from './settings/+state/settings.facade';
 @Component({
   selector: 'app-root',
   template: `
-    <app-nav-menu></app-nav-menu>
+    <app-header></app-header>
     <div class="main">
       <div class="content">
         <router-outlet></router-outlet>

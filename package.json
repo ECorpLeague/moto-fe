@@ -55,6 +55,7 @@
     "@angular/router": "^10.0.14",
     "@angular/youtube-player": "^10.2.0",
     "@ngneat/svg-icon": "^1.0.0",
+    "@ngneat/transloco": "^2.19.1",
     "@ngrx/effects": "^9.2.0",
     "@ngrx/entity": "^10.0.0",
     "@ngrx/store": "^9.2.0",

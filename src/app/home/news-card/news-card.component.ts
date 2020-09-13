@@ -20,7 +20,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </p>
     <div class="button-container">
       <button mat-button color="accent">
-        Read more
+        {{ 'HOME.READ_MORE' | transloco }}
       </button>
     </div>
   `,

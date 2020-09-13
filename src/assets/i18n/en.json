@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "BRACKET": "Bracket"
+  },
+  "HOME": {
+    "READ_MORE": "read more",
+    "NEWS": "news"
+  },
+  "MATCHES": {
+    "LIVE": "Live",
+    "RESULTS": "Results",
+    "UPCOMING_MATCHES": "Upcoming matches"
+  },
+  "DASHBOARD": {
+    "TOURNAMENT": "Tournament",
+    "START_DATE": "Start date",
+    "BRACKET": "Bracket"
+  }
+}

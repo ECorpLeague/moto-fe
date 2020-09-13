@@ -15,6 +15,12 @@ const selectIsMobile = createSelector(
   (state: SettingsState) => state.isMobile
 );
 
+const selectActiveLanguage = createSelector(
+  selectSettingsState,
+  (state: SettingsState) => state.language
+);
+
 export const SettingsSelectors = {
-  selectIsMobile
+  selectIsMobile,
+  selectActiveLanguage
 };

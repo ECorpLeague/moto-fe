@@ -4,7 +4,9 @@ import { Tournament } from '../+state/dashboard.model';
 @Component({
   selector: 'app-dashboard-bracket',
   template: `
-    <app-title-label [title]="'Bracket'"></app-title-label>
+    <app-title-label
+      [title]="'DASHBOARD.BRACKET' | transloco"
+    ></app-title-label>
     <ngtt-double-elimination-tree
       [tournament]="tournament"
       [matchTemplate]="myMatchTemplate"

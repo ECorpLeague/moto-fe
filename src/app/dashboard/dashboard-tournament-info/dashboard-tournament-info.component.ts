@@ -4,11 +4,14 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   selector: 'app-dashboard-tournament-info',
   template: `
     <div>
-      <app-title-label [title]="'Tournament'"></app-title-label>
+      <app-title-label
+        [title]="'DASHBOARD.TOURNAMENT' | transloco"
+      ></app-title-label>
       <p>{{ name }}</p>
     </div>
     <div>
-      <app-title-label [title]="'Start date'"> </app-title-label>
+      <app-title-label [title]="'DASHBOARD.START_DATE' | transloco">
+      </app-title-label>
       <p>{{ startDate }}</p>
     </div>
   `,

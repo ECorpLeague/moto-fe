@@ -1,4 +1,5 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { Language } from './settings.model';
 
 const mobileScreenDetected = createAction('[Settings] Mobile screen detected');
 
@@ -8,8 +9,14 @@ const desktopScreenDetected = createAction(
 
 const init = createAction('[App] App init');
 
+const languageChanged = createAction(
+  '[App] Language changed',
+  props<{ language: Language }>()
+);
+
 export const SettingsActions = {
   mobileScreenDetected,
   desktopScreenDetected,
-  init
+  init,
+  languageChanged
 };

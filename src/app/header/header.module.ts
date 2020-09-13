@@ -7,10 +7,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { SvgIconsModule } from '@ngneat/svg-icon';
+import { HeaderComponent } from './header/header.component';
+import { TranslateModule } from '../settings/translate.module';
 
 @NgModule({
-  declarations: [NavMenuComponent],
+  declarations: [HeaderComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -19,8 +21,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    TranslateModule,
+    SvgIconsModule
   ],
-  exports: [NavMenuComponent]
+  exports: [HeaderComponent]
 })
 export class HeaderModule {}

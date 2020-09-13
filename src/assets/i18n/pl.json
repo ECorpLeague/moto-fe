@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "HOME": "Strona główna",
+    "BRACKET": "Drabinka"
+  },
+  "HOME": {
+    "READ_MORE": "więcej",
+    "NEWS": "Aktualności"
+  },
+  "MATCHES": {
+    "LIVE": "Na żywo",
+    "RESULTS": "Wyniki",
+    "UPCOMING_MATCHES": "Nadchodzące spotkania"
+  },
+  "DASHBOARD": {
+    "TOURNAMENT": "Turniej",
+    "START_DATE": "Data rozpoczęcia",
+    "BRACKET": "Drabinka"
+  }
+}
