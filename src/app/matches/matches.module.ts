@@ -9,6 +9,7 @@ import { UpcomingMatchComponent } from './upcoming-match/upcoming-match.componen
 import { ResultMatchComponent } from './result-match/result-match.component';
 import { TeamBlockModule } from '../shared/team-block/team-block.module';
 import { TranslateModule } from '../settings/translate.module';
+import { HoverBorderModule } from '../shared/hover-border/hover-border.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,13 @@ import { TranslateModule } from '../settings/translate.module';
     UpcomingMatchComponent,
     ResultMatchComponent
   ],
-  imports: [CommonModule, LabelModule, TeamBlockModule, TranslateModule],
+  imports: [
+    CommonModule,
+    LabelModule,
+    TeamBlockModule,
+    TranslateModule,
+    HoverBorderModule
+  ],
   exports: [MatchesColumnComponent]
 })
 export class MatchesModule {}
