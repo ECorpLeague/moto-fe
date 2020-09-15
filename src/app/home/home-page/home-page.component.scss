@@ -51,18 +51,20 @@
     .contact {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       padding-top: 3rem;
 
       svg-icon {
         font-size: 2.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
 
         &.youtube {
           font-size: 3.5rem;
-        }
-
-        &:first-child {
-          margin-right: 6rem;
         }
 
         ::ng-deep g {
