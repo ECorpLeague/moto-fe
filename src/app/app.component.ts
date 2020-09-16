@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { SettingsActions } from './settings/+state/settings.actions';
 import { SettingsFacade } from './settings/+state/settings.facade';
 @Component({
   selector: 'app-root',
@@ -17,5 +19,10 @@ import { SettingsFacade } from './settings/+state/settings.facade';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  constructor(public settingsFacade: SettingsFacade) {}
+  constructor(
+    public settingsFacade: SettingsFacade,
+    private store: Store<any>
+  ) {
+    this.store.dispatch(SettingsActions.init());
+  }
 }

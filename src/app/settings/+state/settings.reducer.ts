@@ -2,7 +2,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 import { SettingsActions } from './settings.actions';
 import { Language } from './settings.model';
 
-export const SETTINGS_FEATURE_KEY = 'preferences';
+export const SETTINGS_FEATURE_KEY = 'settings';
 
 export interface SettingsState {
   isMobile: boolean;
