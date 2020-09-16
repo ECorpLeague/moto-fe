@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DashboardSelectors } from './dashboard.selectors';
-import { Tournament } from './dashboard.model';
+import { Tournament, TournamentHandle } from './dashboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ import { Tournament } from './dashboard.model';
 export class DashboardFacade {
   constructor(private store: Store<any>) {}
 
-  tournaments$: Observable<Tournament[]> = this.store.select(
-    DashboardSelectors.selectAllTournaments
+  tournamentsHandles$: Observable<TournamentHandle[]> = this.store.select(
+    DashboardSelectors.selectTournamentHandles
   );
 
   currentTournament$: Observable<Tournament | null> = this.store.select(

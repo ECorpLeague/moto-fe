@@ -1,15 +1,32 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 12rem;
+  border-bottom: 1px var(--secondary-color) solid;
+  margin: 0 0 0.7rem 0;
+  padding-bottom: 0.6rem;
 }
 
 h1 {
   display: inline-flex;
-  width: 12rem;
-  border-bottom: 1px var(--secondary-color) solid;
-  margin: 0 0 0.7rem 0;
+  margin: 0;
   text-transform: uppercase;
   color: var(--secondary-color);
-  padding-bottom: 0.6rem;
   font-weight: 300;
   font-size: 1.15rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  ::ng-deep mat-icon {
+    width: auto;
+    height: auto;
+    font-size: 1.4rem;
+    color: var(--text);
+    cursor: pointer;
+  }
 }
