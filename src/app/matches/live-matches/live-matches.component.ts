@@ -4,7 +4,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-live-matches',
   template: `
     <app-title-label [title]="'MATCHES.LIVE' | transloco"></app-title-label>
-    <app-upcoming-match *ngFor="let i of [1]"></app-upcoming-match>
+    <app-hover-border *ngFor="let i of [1]"
+      ><app-upcoming-match></app-upcoming-match
+    ></app-hover-border>
   `,
   styleUrls: ['./live-matches.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
