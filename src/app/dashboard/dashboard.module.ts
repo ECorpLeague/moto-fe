@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { NgTournamentTreeModule } from 'ng-tournament-tree';
+import { DashboardEffects } from './+state/dashboard.effects';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { LabelModule } from '../shared/label/label.module';
 import { DashboardBracketComponent } from './dashboard-bracket/dashboard-bracket.component';
@@ -27,6 +29,7 @@ import { TranslateModule } from '../settings/translate.module';
     CommonModule,
     DashboardRoutingModule,
     StoreModule.forFeature(DASHBOARD_FEATURE_KEY, dashboardReducers),
+    EffectsModule.forFeature([DashboardEffects]),
     LabelModule,
     TeamBlockModule,
     MatchesModule,

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { TranslocoService } from '@ngneat/transloco';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
@@ -10,7 +9,7 @@ import { Language } from './settings.model';
 @Injectable()
 export class SettingsEffects {
   constructor(
-    private actions$: Actions,
+    private actions: Actions,
     private translateService: TranslocoService,
     private breakpointObserver: BreakpointObserver
   ) {}
@@ -21,7 +20,7 @@ export class SettingsEffects {
   };
 
   detectScreen = createEffect(() => () =>
-    this.actions$.pipe(
+    this.actions.pipe(
       ofType(SettingsActions.init),
       switchMap(() =>
         this.breakpointObserver
@@ -38,7 +37,7 @@ export class SettingsEffects {
   );
 
   setLanguageOnStart = createEffect(() => () =>
-    this.actions$.pipe(
+    this.actions.pipe(
       ofType(SettingsActions.init),
       map(() => localStorage.getItem(this.config.languageStorageName)),
       filter((language: string | null) => !!language),
@@ -49,7 +48,7 @@ export class SettingsEffects {
 
   setLanguageOnChange = createEffect(
     () => () =>
-      this.actions$.pipe(
+      this.actions.pipe(
         ofType(SettingsActions.languageChanged),
         tap(({ language }) => this.translateService.setActiveLang(language)),
         tap(({ language }) =>
@@ -58,8 +57,4 @@ export class SettingsEffects {
       ),
     { dispatch: false }
   );
-
-  ngrxOnInitEffects(): Action {
-    return SettingsActions.init();
-  }
 }
