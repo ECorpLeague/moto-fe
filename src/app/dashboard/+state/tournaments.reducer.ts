@@ -20,7 +20,8 @@ export interface TournamentsState extends EntityState<Tournament> {
 export const tournamentsSelectors = {
   ...adapter.getSelectors(),
   selectCurrentTournamentId: (state: TournamentsState) =>
-    state.currentTournamentId
+    state.currentTournamentId,
+  selectTournamentHandles: (state: TournamentsState) => state.tournamentsHandles
 };
 
 export const tournamentsInitialState: TournamentsState = adapter.getInitialState(

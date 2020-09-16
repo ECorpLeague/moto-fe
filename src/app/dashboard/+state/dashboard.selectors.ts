@@ -13,9 +13,9 @@ const selectTournamentsState = createSelector(
   (state: DashboardState) => state.tournaments
 );
 
-const selectAllTournaments = createSelector(
+const selectTournamentHandles = createSelector(
   selectTournamentsState,
-  tournamentsSelectors.selectAll
+  tournamentsSelectors.selectTournamentHandles
 );
 
 const selectTournamentEntities = createSelector(
@@ -36,7 +36,7 @@ const selectCurrentTournament = createSelector(
 );
 
 export const DashboardSelectors = {
-  selectAllTournaments,
+  selectTournamentHandles,
   selectCurrentTournamentId,
   selectCurrentTournament
 };
