@@ -13,7 +13,6 @@ import { SelectOption } from '../../shared/select/select/select.component';
         *ngIf="!!tournamentHandles.length"
         [options]="convertToSelectOptions(tournamentHandles)"
         [initialValue]="tournamentHandles[0]?.id"
-        (optionSelected)="test($event)"
       ></app-select>
       <app-spinner *ngIf="!tournamentHandles.length"></app-spinner>
     </div>
@@ -36,9 +35,5 @@ export class DashboardTournamentInfoComponent {
       key: handle.id,
       displayValue: handle.name
     }));
-  }
-
-  test(value: any) {
-    console.log(value);
   }
 }
