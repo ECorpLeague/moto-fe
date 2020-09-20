@@ -20,6 +20,7 @@ import { TeamBlockModule } from '../shared/team-block/team-block.module';
 import { MatchesModule } from '../matches/matches.module';
 import { TranslateModule } from '../settings/translate.module';
 import { SelectModule } from '../shared/select/select.module';
+import { SpinnerModule } from '../shared/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SelectModule } from '../shared/select/select.module';
     MatchesModule,
     NgTournamentTreeModule,
     TranslateModule,
-    SelectModule
+    SelectModule,
+    SpinnerModule
   ],
   exports: [DashboardPageComponent]
 })

@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { SettingsActions } from '../../settings/+state/settings.actions';
-import { switchMapTo } from 'rxjs/operators';
+import { map, switchMapTo } from 'rxjs/operators';
 import { DashboardService } from './dashboard.service';
 import { DashboardActions } from './dashboard.actions';
 import { BestOf } from './dashboard.model';
 import { NgttRound } from 'ng-tournament-tree';
 
-const mockTournamentHandles = [
-  { id: 'id1', name: 'Motoliga Season 5' },
-  { id: 'id2', name: 'Motoliga Season 4' }
-];
-
 const mockTournaments = [
   {
-    id: 'id1',
+    id: '1',
     name: 'Motorola Season 5',
     startDate: '24/05/2020',
     rounds: [
@@ -106,7 +101,7 @@ const mockTournaments = [
     ]
   },
   {
-    id: 'id2',
+    id: '2',
     name: 'Motorola Season 4',
     startDate: '23/05/2020',
     rounds: [
@@ -206,25 +201,22 @@ export class DashboardEffects {
     private dashboardService: DashboardService
   ) {}
 
-  // loadTournamentHandles = createEffect(() => () =>
-  //   this.actions.pipe(
-  //     ofType(SettingsActions.init),
-  //     switchMap(() => this.dashboardService.getTournamentHandles()),
-  //     map(tournamentHandles =>
-  //       DashboardActions.tournamentsHandlesReceived({
-  //         tournaments: tournamentHandles
-  //       })
-  //     )
-  //   )
-  // );
+  loadTournamentHandles = createEffect(() => () =>
+    this.actions.pipe(
+      ofType(SettingsActions.init),
+      switchMapTo(this.dashboardService.getTournamentHandles()),
+      map(tournamentHandles =>
+        DashboardActions.tournamentsHandlesReceived({
+          tournaments: tournamentHandles
+        })
+      )
+    )
+  );
 
   mockTournaments = createEffect(() => () =>
     this.actions.pipe(
       ofType(SettingsActions.init),
       switchMapTo([
-        DashboardActions.tournamentsHandlesReceived({
-          tournaments: mockTournamentHandles
-        }),
         DashboardActions.tournamentReceived({
           tournament: mockTournaments[0]
         }),

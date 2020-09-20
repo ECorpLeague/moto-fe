@@ -8,9 +8,11 @@ import { Tournament } from '../+state/dashboard.model';
       [title]="'DASHBOARD.BRACKET' | transloco"
     ></app-title-label>
     <ngtt-double-elimination-tree
+      *ngIf="tournament"
       [tournament]="tournament"
       [matchTemplate]="myMatchTemplate"
     ></ngtt-double-elimination-tree>
+    <app-spinner *ngIf="!tournament" [size]="10"></app-spinner>
 
     <ng-template #myMatchTemplate let-match>
       <app-dashboard-bracket-block

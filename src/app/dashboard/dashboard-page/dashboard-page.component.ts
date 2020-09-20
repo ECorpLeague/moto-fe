@@ -7,7 +7,7 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
   template: `
     <app-dashboard-tournament-info
       [tournamentHandles]="(dashboardFacade.tournamentsHandles$ | async)!"
-      [startDate]="(dashboardFacade.currentTournament$ | async)!.startDate"
+      [startDate]="(dashboardFacade.currentTournament$ | async)?.startDate"
     ></app-dashboard-tournament-info>
     <app-dashboard-bracket
       [tournament]="(dashboardFacade.currentTournament$ | async)!"

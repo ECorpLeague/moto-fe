@@ -6,8 +6,8 @@ import gql from 'graphql-tag';
 import { TournamentHandle } from './dashboard.model';
 
 const tournamentHandles = gql`
-  query allTournamentHandles {
-    tournamentHandle {
+  query {
+    allTournamentsHandle {
       id
       name
     }
@@ -20,9 +20,9 @@ const tournamentHandles = gql`
 export class DashboardService {
   constructor(private apollo: Apollo) {}
 
-  // getTournamentHandles(): Observable<TournamentHandle[]> {
-  //   return this.apollo
-  //     .query<TournamentHandle[]>({ query: tournamentHandles })
-  //     .pipe(map(({ data }) => data));
-  // }
+  getTournamentHandles(): Observable<TournamentHandle[]> {
+    return this.apollo
+      .query<any>({ query: tournamentHandles })
+      .pipe(map(({ data }) => data.allTournamentsHandle));
+  }
 }

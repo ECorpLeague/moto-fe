@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  margin: 1rem;
+  border-radius: 50%;
+  border: 0.3rem solid var(--secondary-color-30);
+  border-top-color: var(--secondary-color);
+  animation: 1.5s spin infinite linear;
+
+  &.multi {
+    border-bottom-color: var(--secondary-color);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -8,7 +8,9 @@ const uri = 'https://dev-motoleague.herokuapp.com/graphql';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({ uri }),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      addTypename: false
+    }),
     defaultOptions: {
       watchQuery: {
         fetchPolicy: 'no-cache'
