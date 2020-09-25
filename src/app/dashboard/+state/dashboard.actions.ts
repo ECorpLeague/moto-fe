@@ -6,12 +6,20 @@ const tournamentsHandlesReceived = createAction(
   props<{ tournaments: TournamentHandle[] }>()
 );
 
+const tournamentsHandlesReceivedError = createAction(
+  '[App] Tournaments handles received error'
+);
+
 const tournamentReceived = createAction(
   '[App] Tournament Received',
   props<{ tournament: Tournament }>()
 );
 
+const tournamentReceivedError = createAction('[App] Tournament Received Error');
+
 export const DashboardActions = {
+  tournamentsHandlesReceivedError,
   tournamentsHandlesReceived,
-  tournamentReceived
+  tournamentReceived,
+  tournamentReceivedError
 };

@@ -14,19 +14,24 @@ export const adapter: EntityAdapter<Tournament> = createEntityAdapter<
 
 export interface TournamentsState extends EntityState<Tournament> {
   tournamentsHandles: TournamentHandle[];
-  currentTournamentId: string | null;
+  areTournamentsHandlesLoading: boolean;
+  currentTournamentId: number | null;
 }
 
 export const tournamentsSelectors = {
   ...adapter.getSelectors(),
   selectCurrentTournamentId: (state: TournamentsState) =>
     state.currentTournamentId,
-  selectTournamentHandles: (state: TournamentsState) => state.tournamentsHandles
+  selectTournamentHandles: (state: TournamentsState) =>
+    state.tournamentsHandles,
+  selectAreTournamentsHandlesLoading: (state: TournamentsState) =>
+    state.areTournamentsHandlesLoading
 };
 
 export const tournamentsInitialState: TournamentsState = adapter.getInitialState(
   {
     tournamentsHandles: [],
+    areTournamentsHandlesLoading: true,
     currentTournamentId: null
   }
 );
@@ -38,7 +43,14 @@ const reducer = createReducer(
     return {
       ...state,
       tournamentsHandles: tournaments,
+      areTournamentsHandlesLoading: false,
       currentTournamentId: firstTournament?.id || null
+    };
+  }),
+  on(DashboardActions.tournamentsHandlesReceivedError, state => {
+    return {
+      ...state,
+      areTournamentsHandlesLoading: false
     };
   }),
   on(DashboardActions.tournamentReceived, (state, { tournament }) =>

@@ -15,6 +15,10 @@
   "DASHBOARD": {
     "TOURNAMENT": "Tournament",
     "START_DATE": "Start date",
-    "BRACKET": "Bracket"
+    "BRACKET": "Bracket",
+    "NO_TOURNAMENTS": "No tournaments",
+    "ERRORS": {
+      "LOAD_TOURNAMENTS": "Failed to load tournaments"
+    }
   }
 }

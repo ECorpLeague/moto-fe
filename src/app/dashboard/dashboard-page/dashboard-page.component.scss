@@ -1,11 +1,24 @@
 :host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
   display: grid;
-  grid-template-areas:
-    'tournament'
-    'bracket';
-  grid-template-rows: auto 1fr;
   height: 100%;
   gap: 1rem;
+
+  &.with-tournaments {
+    grid-template-areas:
+      'tournament'
+      'bracket';
+    grid-template-rows: auto 1fr;
+  }
+
+  &.without-tournaments {
+    grid-template-rows: 1fr;
+  }
 }
 
 app-dashboard-tournament-info {
@@ -15,6 +28,14 @@ app-dashboard-tournament-info {
 app-dashboard-bracket {
   grid-area: bracket;
   align-self: center;
+}
+
+.no-results {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 749.98px) {

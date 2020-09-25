@@ -21,14 +21,14 @@ import { BestOf } from 'src/app/dashboard/+state/dashboard.model';
 export class ResultMatchComponent {
   isLoser = isLoser;
   match = {
-    id: '1',
+    id: 1,
     firstTeam: {
-      id: '1',
+      id: 1,
       name: 'xd',
       score: 2
     },
     secondTeam: {
-      id: '2',
+      id: 2,
       name: 'lol',
       score: 1
     },
