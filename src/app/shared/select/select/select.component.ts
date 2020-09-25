@@ -8,7 +8,7 @@ import {
   Output
 } from '@angular/core';
 /*
-change to @ngnear/reactive-forms when they fix strict mode
+change to @ngneat/reactive-forms when they fix strict mode
 https://github.com/ngneat/reactive-forms/issues/26
 */
 import { FormControl } from '@angular/forms';
@@ -16,7 +16,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 export interface SelectOption {
-  key: string;
+  key: number;
   displayValue: string;
 }
 
@@ -40,9 +40,9 @@ export class SelectComponent implements OnInit, OnDestroy {
   @Input() options: SelectOption[];
 
   @Input()
-  public set initialValue(value: string | undefined) {
+  public set initialValue(value: number | undefined) {
     if (!!value) {
-      this.control.setValue(value);
+      this.control.patchValue(value);
     }
   }
 

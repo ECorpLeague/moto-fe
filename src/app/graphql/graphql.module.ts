@@ -16,7 +16,8 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
         fetchPolicy: 'no-cache'
       },
       query: {
-        fetchPolicy: 'no-cache'
+        fetchPolicy: 'no-cache',
+        errorPolicy: 'all'
       }
     }
   };

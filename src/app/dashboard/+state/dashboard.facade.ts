@@ -17,4 +17,8 @@ export class DashboardFacade {
   currentTournament$: Observable<Tournament | null> = this.store.select(
     DashboardSelectors.selectCurrentTournament
   );
+
+  areTournamentsHandlesLoading$: Observable<boolean> = this.store.select(
+    DashboardSelectors.selectAreTournamentsHandlesLoading
+  );
 }

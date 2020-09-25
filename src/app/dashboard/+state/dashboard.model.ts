@@ -7,26 +7,26 @@ export enum BestOf {
 }
 
 export interface BracketMatch {
-  id: string;
+  id: number;
   firstTeam: BracketTeam;
   secondTeam: BracketTeam;
   bo: BestOf;
 }
 
 export interface BracketTeam {
-  id: string;
+  id: number;
   name: string;
   score?: number;
 }
 
 export interface Tournament {
-  id: string;
+  id: number;
   name: string;
   startDate: string;
   rounds: NgttRound[];
 }
 
 export interface TournamentHandle {
-  id: string;
+  id: number;
   name: string;
 }

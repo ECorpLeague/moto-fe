@@ -1,198 +1,10 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { SettingsActions } from '../../settings/+state/settings.actions';
-import { map, switchMapTo } from 'rxjs/operators';
+import { catchError, map, switchMap, switchMapTo } from 'rxjs/operators';
 import { DashboardService } from './dashboard.service';
 import { DashboardActions } from './dashboard.actions';
-import { BestOf } from './dashboard.model';
-import { NgttRound } from 'ng-tournament-tree';
-
-const mockTournaments = [
-  {
-    id: '1',
-    name: 'Motorola Season 5',
-    startDate: '24/05/2020',
-    rounds: [
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'teamName #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'teamName #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Final',
-        matches: [
-          {
-            firstTeam: { name: 'team #1', score: 2 },
-            secondTeam: { name: 'team #2', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound
-    ]
-  },
-  {
-    id: '2',
-    name: 'Motorola Season 4',
-    startDate: '23/05/2020',
-    rounds: [
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 1 },
-            secondTeam: { name: 'teamName #4', score: 2 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #3', score: 1 },
-            secondTeam: { name: 'teamName #4', score: 2 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Winnerbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 2 },
-            secondTeam: { name: 'team #3', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 2 },
-            secondTeam: { name: 'team #4', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #3', score: 2 },
-            secondTeam: { name: 'team #4', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 2 },
-            secondTeam: { name: 'team #4', score: 1 },
-            bo: BestOf.three
-          },
-          {
-            firstTeam: { name: 'team #3', score: 2 },
-            secondTeam: { name: 'team #4', score: 1 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 1 },
-            secondTeam: { name: 'team #4', score: 2 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Loserbracket',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 1 },
-            secondTeam: { name: 'team #4', score: 2 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound,
-      {
-        type: 'Final',
-        matches: [
-          {
-            firstTeam: { name: 'team #3', score: 1 },
-            secondTeam: { name: 'team #4', score: 2 },
-            bo: BestOf.three
-          }
-        ]
-      } as NgttRound
-    ]
-  }
-];
+import { of } from 'rxjs';
 
 @Injectable()
 export class DashboardEffects {
@@ -209,21 +21,19 @@ export class DashboardEffects {
         DashboardActions.tournamentsHandlesReceived({
           tournaments: tournamentHandles
         })
-      )
+      ),
+      catchError(() => of(DashboardActions.tournamentsHandlesReceivedError()))
     )
   );
 
-  mockTournaments = createEffect(() => () =>
+  loadFirstTournament = createEffect(() => () =>
     this.actions.pipe(
-      ofType(SettingsActions.init),
-      switchMapTo([
-        DashboardActions.tournamentReceived({
-          tournament: mockTournaments[0]
-        }),
-        DashboardActions.tournamentReceived({
-          tournament: mockTournaments[1]
-        })
-      ])
+      ofType(DashboardActions.tournamentsHandlesReceived),
+      switchMap(({ tournaments }) =>
+        this.dashboardService.getTournamentById(tournaments[0].id)
+      ),
+      map(tournament => DashboardActions.tournamentReceived({ tournament })),
+      catchError(() => of(DashboardActions.tournamentReceivedError()))
     )
   );
 }

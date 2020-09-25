@@ -1,15 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import gql from 'graphql-tag';
-import { TournamentHandle } from './dashboard.model';
+import { Tournament, TournamentHandle } from './dashboard.model';
 
 const tournamentHandles = gql`
   query {
-    allTournamentsHandle {
+    tournaments {
       id
       name
+    }
+  }
+`;
+
+const tournament = gql`
+  query($id: Int!) {
+    tournament(id: $id) {
+      id
+      name
+      startDate
+      rounds {
+        id
+        type
+        matches {
+          id
+          firstTeam {
+            name
+            score
+            teamId
+          }
+          secondTeam {
+            name
+            score
+            teamId
+          }
+          bo
+        }
+      }
     }
   }
 `;
@@ -23,6 +51,12 @@ export class DashboardService {
   getTournamentHandles(): Observable<TournamentHandle[]> {
     return this.apollo
       .query<any>({ query: tournamentHandles })
-      .pipe(map(({ data }) => data.allTournamentsHandle));
+      .pipe(map(({ data }) => data.tournaments));
+  }
+
+  getTournamentById(id: number): Observable<Tournament> {
+    return this.apollo
+      .query<any>({ query: tournament, variables: { id } })
+      .pipe(map(({ data }) => data.tournament));
   }
 }

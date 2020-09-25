@@ -15,6 +15,10 @@
   "DASHBOARD": {
     "TOURNAMENT": "Turniej",
     "START_DATE": "Data rozpoczęcia",
-    "BRACKET": "Drabinka"
+    "BRACKET": "Drabinka",
+    "NO_TOURNAMENTS": "Brak turniejów",
+    "ERRORS": {
+      "LOAD_TOURNAMENTS": "Nie udało się załadować turniejów"
+    }
   }
 }
