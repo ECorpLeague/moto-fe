@@ -21,7 +21,7 @@ import { SelectOption } from '../../shared/select/select/select.component';
       <div *ngIf="currentTournament" class="date">
         {{ currentTournament.startDate }}
       </div>
-      <app-spinner *ngIf="!currentTournament"></app-spinner>
+      <app-spinner *ngIf="!currentTournament" [size]="0.8"></app-spinner>
     </div>
   `,
   styleUrls: ['./dashboard-tournament-info.component.scss'],
