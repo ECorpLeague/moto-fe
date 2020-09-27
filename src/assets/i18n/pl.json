@@ -1,4 +1,9 @@
 {
+  "COMMON": {
+    "TOAST": {
+      "HIDE": "Ukryj"
+    }
+  },
   "HEADER": {
     "HOME": "Strona główna",
     "BRACKET": "Drabinka"
@@ -18,7 +23,8 @@
     "BRACKET": "Drabinka",
     "NO_TOURNAMENTS": "Brak turniejów",
     "ERRORS": {
-      "LOAD_TOURNAMENTS": "Nie udało się załadować turniejów"
+      "LOAD_TOURNAMENTS": "Nie udało się załadować turniejów",
+      "LOAD_TOURNAMENT": "Nie udało się załadować turnieju"
     }
   }
 }

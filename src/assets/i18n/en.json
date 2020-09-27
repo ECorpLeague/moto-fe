@@ -1,4 +1,9 @@
 {
+  "COMMON": {
+    "TOAST": {
+      "HIDE": "Hide"
+    }
+  },
   "HEADER": {
     "HOME": "Home",
     "BRACKET": "Bracket"
@@ -18,7 +23,8 @@
     "BRACKET": "Bracket",
     "NO_TOURNAMENTS": "No tournaments",
     "ERRORS": {
-      "LOAD_TOURNAMENTS": "Failed to load tournaments"
+      "LOAD_TOURNAMENTS": "Failed to load tournaments",
+      "LOAD_TOURNAMENT": "Failed to load tournament"
     }
   }
 }

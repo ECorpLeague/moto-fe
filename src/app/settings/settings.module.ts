@@ -7,6 +7,7 @@ import {
   settingsReducer
 } from './+state/settings.reducer';
 import { SettingsEffects } from './+state/settings.effects';
+import { LogService } from './+state/logger.service';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { SettingsEffects } from './+state/settings.effects';
     CommonModule,
     StoreModule.forFeature(SETTINGS_FEATURE_KEY, settingsReducer),
     EffectsModule.forFeature([SettingsEffects])
-  ]
+  ],
+  providers: [LogService]
 })
 export class SettingsModule {}
