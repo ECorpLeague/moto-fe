@@ -1,9 +1,9 @@
 import { NgttRound } from 'ng-tournament-tree';
 
 export enum BestOf {
-  one = 1,
-  three = 3,
-  five = 5
+  one = 'ONE',
+  three = 'THREE',
+  five = 'FIVE'
 }
 
 export interface BracketMatch {

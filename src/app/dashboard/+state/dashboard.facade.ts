@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DashboardSelectors } from './dashboard.selectors';
-import { Tournament, TournamentHandle } from './dashboard.model';
+import { BracketMatch, Tournament, TournamentHandle } from './dashboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,9 @@ export class DashboardFacade {
 
   areTournamentsHandlesLoading$: Observable<boolean> = this.store.select(
     DashboardSelectors.selectAreTournamentsHandlesLoading
+  );
+
+  results$: Observable<BracketMatch[]> = this.store.select(
+    DashboardSelectors.selectResults
   );
 }

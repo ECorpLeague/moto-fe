@@ -9,8 +9,8 @@ import { BracketTeam } from 'src/app/dashboard/+state/dashboard.model';
 @Component({
   selector: 'app-team-block',
   template: `
-    <div class="name">{{ team.name }}</div>
-    <div class="score">{{ team.score }}</div>
+    <div class="name">{{ team.name || 'TBD' }}</div>
+    <div *ngIf="team.score" class="score">{{ team.score }}</div>
   `,
   styleUrls: ['./team-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { isLoser } from 'src/app/dashboard/+state/utilities';
-import { BestOf } from 'src/app/dashboard/+state/dashboard.model';
+import { BracketMatch } from 'src/app/dashboard/+state/dashboard.model';
 
 @Component({
   selector: 'app-result-match',
@@ -20,18 +20,5 @@ import { BestOf } from 'src/app/dashboard/+state/dashboard.model';
 })
 export class ResultMatchComponent {
   isLoser = isLoser;
-  match = {
-    id: 1,
-    firstTeam: {
-      id: 1,
-      name: 'xd',
-      score: 2
-    },
-    secondTeam: {
-      id: 2,
-      name: 'lol',
-      score: 1
-    },
-    bo: BestOf.three
-  };
+  @Input() match: BracketMatch;
 }
