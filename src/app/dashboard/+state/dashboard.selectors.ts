@@ -1,8 +1,10 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { Dictionary } from '@ngrx/entity';
 import { tournamentsSelectors } from './tournaments.reducer';
-import { Tournament, TournamentHandle } from './dashboard.model';
+import { BracketMatch, Tournament } from './dashboard.model';
 import { DashboardState, DASHBOARD_FEATURE_KEY } from './dashboard.reducer';
+import { isFinishedMatch } from './utilities';
+import { flatten } from 'lodash';
 
 const selectDashboardState = createFeatureSelector<DashboardState>(
   DASHBOARD_FEATURE_KEY
@@ -40,9 +42,30 @@ const selectCurrentTournament = createSelector(
     currentId && entities[currentId] ? entities[currentId]! : null
 );
 
+const selectResults = createSelector(
+  selectCurrentTournamentId,
+  selectTournamentEntities,
+  (currentTournamentId, tournamentEntities) => {
+    const entity =
+      tournamentEntities && currentTournamentId
+        ? tournamentEntities[currentTournamentId]
+        : null;
+    return entity
+      ? flatten(
+          entity.rounds.map(round =>
+            round.matches
+              .filter((match: BracketMatch) => isFinishedMatch(match))
+              .map((match: BracketMatch) => match)
+          )
+        )
+      : [];
+  }
+);
+
 export const DashboardSelectors = {
   selectTournamentHandles,
   selectCurrentTournamentId,
   selectCurrentTournament,
-  selectAreTournamentsHandlesLoading
+  selectAreTournamentsHandlesLoading,
+  selectResults
 };

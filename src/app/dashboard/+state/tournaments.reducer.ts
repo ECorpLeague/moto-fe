@@ -55,7 +55,13 @@ const reducer = createReducer(
   }),
   on(DashboardActions.tournamentReceived, (state, { tournament }) =>
     adapter.upsertOne(tournament, state)
-  )
+  ),
+  on(DashboardActions.loadTournament, (state, { tournamentId }) => {
+    return {
+      ...state,
+      currentTournamentId: tournamentId
+    };
+  })
 );
 
 export function tournamentReducer(

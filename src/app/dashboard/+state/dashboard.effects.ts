@@ -44,4 +44,18 @@ export class DashboardEffects {
       })
     )
   );
+
+  loadTournament = createEffect(() => () =>
+    this.actions.pipe(
+      ofType(DashboardActions.loadTournament),
+      switchMap(({ tournamentId }) =>
+        this.dashboardService.getTournamentById(tournamentId)
+      ),
+      map(tournament => DashboardActions.tournamentReceived({ tournament })),
+      catchError(error => {
+        this.logService.warn(error);
+        return of(DashboardActions.tournamentReceivedError());
+      })
+    )
+  );
 }
