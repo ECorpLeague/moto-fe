@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { BracketMatch } from '../../dashboard/+state/dashboard.model';
 
 @Component({
   selector: 'app-upcoming-matches',
@@ -6,11 +7,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     <app-title-label
       [title]="'MATCHES.UPCOMING_MATCHES' | transloco"
     ></app-title-label>
-    <app-hover-border *ngFor="let i of [1, 2, 3, 4]"
-      ><app-upcoming-match></app-upcoming-match>
+    <app-hover-border *ngFor="let match of matches"
+      ><app-upcoming-match [match]="match"></app-upcoming-match>
     </app-hover-border>
   `,
   styleUrls: ['./upcoming-matches.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UpcomingMatchesComponent {}
+export class UpcomingMatchesComponent {
+  @Input() matches: BracketMatch[];
+}

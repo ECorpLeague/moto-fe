@@ -2,4 +2,5 @@
   display: grid;
   grid-auto-rows: auto;
   row-gap: 1rem;
+  min-width: 22rem; // conected with match label width
 }

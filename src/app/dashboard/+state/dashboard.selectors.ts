@@ -1,10 +1,10 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { Dictionary } from '@ngrx/entity';
+import { flatten } from 'lodash';
 import { tournamentsSelectors } from './tournaments.reducer';
 import { BracketMatch, Tournament } from './dashboard.model';
 import { DashboardState, DASHBOARD_FEATURE_KEY } from './dashboard.reducer';
-import { isFinishedMatch } from './utilities';
-import { flatten } from 'lodash';
+import { isFinishedMatch, isUpcomingMatch } from './dashboard.utilities';
 
 const selectDashboardState = createFeatureSelector<DashboardState>(
   DASHBOARD_FEATURE_KEY
@@ -47,19 +47,41 @@ const selectCurrentTournament = createSelector(
     currentId && entities[currentId] ? entities[currentId]! : null
 );
 
-const selectResults = createSelector(
+const selectActiveTournament = createSelector(
   selectActiveTournamentId,
   selectTournamentEntities,
-  (currentTournamentId, tournamentEntities) => {
-    const entity =
-      tournamentEntities && currentTournamentId
-        ? tournamentEntities[currentTournamentId]
-        : null;
-    return entity
+  (
+    activeTournamentId: number | null,
+    tournamentEntities: Dictionary<Tournament>
+  ) =>
+    tournamentEntities && activeTournamentId
+      ? tournamentEntities[activeTournamentId]!
+      : null
+);
+
+const selectResults = createSelector(
+  selectActiveTournament,
+  (activeTournament: Tournament | null) => {
+    return activeTournament
       ? flatten(
-          entity.rounds.map(round =>
+          activeTournament.rounds.map(round =>
             round.matches
               .filter((match: BracketMatch) => isFinishedMatch(match))
+              .map((match: BracketMatch) => match)
+          )
+        )
+      : [];
+  }
+);
+
+const selectUpcomingMatches = createSelector(
+  selectActiveTournament,
+  (activeTournament: Tournament | null) => {
+    return activeTournament
+      ? flatten(
+          activeTournament.rounds.map(round =>
+            round.matches
+              .filter((match: BracketMatch) => isUpcomingMatch(match))
               .map((match: BracketMatch) => match)
           )
         )
@@ -73,5 +95,6 @@ export const DashboardSelectors = {
   selectActiveTournamentId,
   selectCurrentTournament,
   selectAreTournamentsHandlesLoading,
-  selectResults
+  selectResults,
+  selectUpcomingMatches
 };

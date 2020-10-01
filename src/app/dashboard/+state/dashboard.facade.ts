@@ -25,4 +25,8 @@ export class DashboardFacade {
   results$: Observable<BracketMatch[]> = this.store.select(
     DashboardSelectors.selectResults
   );
+
+  upcomingMatches$: Observable<BracketMatch[]> = this.store.select(
+    DashboardSelectors.selectUpcomingMatches
+  );
 }

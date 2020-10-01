@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { isLoser } from 'src/app/dashboard/+state/utilities';
-import { BracketMatch } from 'src/app/dashboard/+state/dashboard.model';
+import { isLoser } from '../../dashboard/+state/dashboard.utilities';
+import { BracketMatch } from '../../dashboard/+state/dashboard.model';
 
 @Component({
   selector: 'app-result-match',
