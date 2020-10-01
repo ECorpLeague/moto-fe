@@ -15,10 +15,12 @@ const tournamentReceived = createAction(
   props<{ tournament: Tournament }>()
 );
 
-const tournamentReceivedError = createAction('[App] Tournament Received Error');
+const tournamentReceivedError = createAction(
+  '[Dashboard] Tournament Received Error'
+);
 
-const loadTournament = createAction(
-  '[Bracket] Load tournament',
+const tournamentChanged = createAction(
+  '[Dashboard] Tournament changed',
   props<{ tournamentId: number }>()
 );
 
@@ -27,5 +29,5 @@ export const DashboardActions = {
   tournamentsHandlesReceived,
   tournamentReceived,
   tournamentReceivedError,
-  loadTournament
+  tournamentChanged
 };

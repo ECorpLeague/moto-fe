@@ -46,7 +46,7 @@ export class SelectComponent implements OnInit, OnDestroy {
     }
   }
 
-  @Output() optionSelected = new EventEmitter<string>();
+  @Output() optionSelected = new EventEmitter<number>();
 
   control = new FormControl(null);
   private destroy$ = new Subject();
@@ -64,7 +64,7 @@ export class SelectComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  compareByKey(key1: string, key2: string): boolean {
+  compareByKey(key1: number, key2: number): boolean {
     return key1 === key2;
   }
 }

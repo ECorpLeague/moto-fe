@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap, switchMapTo } from 'rxjs/operators';
+import {
+  catchError,
+  filter,
+  map,
+  switchMap,
+  switchMapTo,
+  withLatestFrom
+} from 'rxjs/operators';
 import { SettingsActions } from '../../settings/+state/settings.actions';
 import { DashboardService } from './dashboard.service';
 import { DashboardActions } from './dashboard.actions';
 import { LogService } from '../../settings/+state/logger.service';
+import { DashboardFacade } from './dashboard.facade';
 
 @Injectable()
 export class DashboardEffects {
   constructor(
     private actions: Actions,
     private dashboardService: DashboardService,
+    private dashboardFacade: DashboardFacade,
     private logService: LogService
   ) {}
 
@@ -47,8 +56,10 @@ export class DashboardEffects {
 
   loadTournament = createEffect(() => () =>
     this.actions.pipe(
-      ofType(DashboardActions.loadTournament),
-      switchMap(({ tournamentId }) =>
+      ofType(DashboardActions.tournamentChanged),
+      withLatestFrom(this.dashboardFacade.currentTournament$),
+      filter(([_, currentTournament]) => !currentTournament),
+      switchMap(([{ tournamentId }, _]) =>
         this.dashboardService.getTournamentById(tournamentId)
       ),
       map(tournament => DashboardActions.tournamentReceived({ tournament })),
