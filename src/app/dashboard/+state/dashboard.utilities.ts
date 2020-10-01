@@ -10,6 +10,15 @@ export function isFinishedMatch(match: BracketMatch): boolean {
     : false;
 }
 
+export function isUpcomingMatch(match: BracketMatch): boolean {
+  return (
+    !!match.firstTeam.name &&
+    !!match.secondTeam.name &&
+    match.firstTeam.score === null &&
+    match.secondTeam.score === null
+  );
+}
+
 export function isLoser(team: BracketTeam, match: BracketMatch): boolean {
   return team.score ? boToNumber(match.bo) / 2 > team.score : false;
 }

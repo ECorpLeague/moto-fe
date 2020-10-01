@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BracketMatch } from '../+state/dashboard.model';
-import { isLoser } from '../+state/utilities';
+import { isLoser } from '../+state/dashboard.utilities';
 
 @Component({
   selector: 'app-dashboard-bracket-block',
