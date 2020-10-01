@@ -35,6 +35,11 @@ const selectCurrentTournamentId = createSelector(
   tournamentsSelectors.selectCurrentTournamentId
 );
 
+const selectActiveTournamentId = createSelector(
+  selectTournamentsState,
+  tournamentsSelectors.selectActiveTournamentId
+);
+
 const selectCurrentTournament = createSelector(
   selectTournamentEntities,
   selectCurrentTournamentId,
@@ -43,7 +48,7 @@ const selectCurrentTournament = createSelector(
 );
 
 const selectResults = createSelector(
-  selectCurrentTournamentId,
+  selectActiveTournamentId,
   selectTournamentEntities,
   (currentTournamentId, tournamentEntities) => {
     const entity =
@@ -65,6 +70,7 @@ const selectResults = createSelector(
 export const DashboardSelectors = {
   selectTournamentHandles,
   selectCurrentTournamentId,
+  selectActiveTournamentId,
   selectCurrentTournament,
   selectAreTournamentsHandlesLoading,
   selectResults
