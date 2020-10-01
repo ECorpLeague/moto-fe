@@ -114,5 +114,5 @@
 }
 
 :host {
-  @include btn-border-slide(transparent, var(--secondary-color-50), 1px, 0.4s);
+  @include btn-border-slide(transparent, var(--secondary-color-50), 2px, 0.4s);
 }

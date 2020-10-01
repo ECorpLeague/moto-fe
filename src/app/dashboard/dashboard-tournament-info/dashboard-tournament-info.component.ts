@@ -22,7 +22,7 @@ import { SelectOption } from '../../shared/select/select/select.component';
       <app-title-label [title]="'DASHBOARD.START_DATE' | transloco">
       </app-title-label>
       <div *ngIf="currentTournament" class="date">
-        {{ currentTournament.startDate }}
+        {{ currentTournament.startDate | date }}
       </div>
       <app-spinner *ngIf="!currentTournament" [size]="0.8"></app-spinner>
     </div>
