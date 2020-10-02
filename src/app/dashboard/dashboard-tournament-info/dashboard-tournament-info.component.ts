@@ -10,6 +10,7 @@ import { SelectOption } from '../../shared/select/select/select.component';
     <div class="container">
       <app-title-label
         [title]="'DASHBOARD.TOURNAMENT' | transloco"
+        [isActive]="isActive"
       ></app-title-label>
       <app-select
         *ngIf="!!tournamentsHandles.length"
@@ -19,7 +20,10 @@ import { SelectOption } from '../../shared/select/select/select.component';
       ></app-select>
     </div>
     <div class="container">
-      <app-title-label [title]="'DASHBOARD.START_DATE' | transloco">
+      <app-title-label
+        [title]="'DASHBOARD.START_DATE' | transloco"
+        [isActive]="isActive"
+      >
       </app-title-label>
       <div *ngIf="currentTournament" class="date">
         {{ currentTournament.startDate | date }}
@@ -33,6 +37,7 @@ import { SelectOption } from '../../shared/select/select/select.component';
 export class DashboardTournamentInfoComponent {
   @Input() tournamentsHandles: TournamentHandle[];
   @Input() currentTournament: Tournament;
+  @Input() isActive: boolean;
 
   constructor(private store: Store<any>) {}
 

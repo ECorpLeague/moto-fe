@@ -1,9 +1,14 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  HostBinding
+} from '@angular/core';
 
 @Component({
   selector: 'app-title-label',
   template: `
-    <h1>
+    <h1 [class.isActive]="isActive">
       {{ title }}
     </h1>
     <div class="actions">
@@ -15,4 +20,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 })
 export class TitleLabelComponent {
   @Input() title: string;
+  @HostBinding('class.isActive') @Input() isActive = true;
 }

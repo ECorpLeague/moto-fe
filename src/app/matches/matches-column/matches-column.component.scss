@@ -1,6 +1,6 @@
 :host {
   display: grid;
-  grid-auto-rows: auto;
+  grid-template-rows: 1fr 3fr 3fr;
   row-gap: 1rem;
   min-width: 22rem; // conected with match label width
 }

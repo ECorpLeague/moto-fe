@@ -8,6 +8,7 @@ import { BracketMatch } from 'src/app/dashboard/+state/dashboard.model';
     <app-hover-border *ngFor="let match of matches"
       ><app-result-match [match]="match"></app-result-match
     ></app-hover-border>
+    <app-spinner *ngIf="!matches.length" [size]="5"></app-spinner>
   `,
   styleUrls: ['./results-matches.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

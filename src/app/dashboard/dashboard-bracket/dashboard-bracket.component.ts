@@ -6,6 +6,7 @@ import { Tournament } from '../+state/dashboard.model';
   template: `
     <app-title-label
       [title]="'DASHBOARD.BRACKET' | transloco"
+      [isActive]="isActive"
     ></app-title-label>
     <ngtt-double-elimination-tree
       *ngIf="tournament"
@@ -25,4 +26,5 @@ import { Tournament } from '../+state/dashboard.model';
 })
 export class DashboardBracketComponent {
   @Input() tournament: Tournament;
+  @Input() isActive: boolean;
 }

@@ -10,6 +10,7 @@ import { BracketMatch } from '../../dashboard/+state/dashboard.model';
     <app-hover-border *ngFor="let match of matches"
       ><app-upcoming-match [match]="match"></app-upcoming-match>
     </app-hover-border>
+    <app-spinner *ngIf="!matches.length" [size]="5"></app-spinner>
   `,
   styleUrls: ['./upcoming-matches.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
