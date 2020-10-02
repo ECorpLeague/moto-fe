@@ -22,6 +22,10 @@ export class DashboardFacade {
     DashboardSelectors.selectAreTournamentsHandlesLoading
   );
 
+  isCurrentTournamentActive$: Observable<boolean> = this.store.select(
+    DashboardSelectors.selectIsCurrentTournamentActive
+  );
+
   results$: Observable<BracketMatch[]> = this.store.select(
     DashboardSelectors.selectResults
   );

@@ -10,6 +10,7 @@ import { ResultMatchComponent } from './result-match/result-match.component';
 import { TeamBlockModule } from '../shared/team-block/team-block.module';
 import { TranslateModule } from '../settings/translate.module';
 import { HoverBorderModule } from '../shared/hover-border/hover-border.module';
+import { SpinnerModule } from '../shared/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HoverBorderModule } from '../shared/hover-border/hover-border.module';
     LabelModule,
     TeamBlockModule,
     TranslateModule,
-    HoverBorderModule
+    HoverBorderModule,
+    SpinnerModule
   ],
   exports: [MatchesColumnComponent]
 })

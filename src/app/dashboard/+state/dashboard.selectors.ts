@@ -59,6 +59,13 @@ const selectActiveTournament = createSelector(
       : null
 );
 
+const selectIsCurrentTournamentActive = createSelector(
+  selectCurrentTournamentId,
+  selectActiveTournamentId,
+  (currentId: number | null, activeTournamentId: number | null) =>
+    currentId === activeTournamentId
+);
+
 const selectResults = createSelector(
   selectActiveTournament,
   (activeTournament: Tournament | null) => {
@@ -95,6 +102,7 @@ export const DashboardSelectors = {
   selectActiveTournamentId,
   selectCurrentTournament,
   selectAreTournamentsHandlesLoading,
+  selectIsCurrentTournamentActive,
   selectResults,
   selectUpcomingMatches
 };

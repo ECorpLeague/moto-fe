@@ -20,9 +20,11 @@ import { SettingsFacade } from '../../settings/+state/settings.facade';
         <app-dashboard-tournament-info
           [tournamentsHandles]="(dashboardFacade.tournamentsHandles$ | async)!"
           [currentTournament]="(dashboardFacade.currentTournament$ | async)!"
+          [isActive]="(dashboardFacade.isCurrentTournamentActive$ | async)!"
         ></app-dashboard-tournament-info>
         <app-dashboard-bracket
           [tournament]="(dashboardFacade.currentTournament$ | async)!"
+          [isActive]="(dashboardFacade.isCurrentTournamentActive$ | async)!"
         ></app-dashboard-bracket>
       </ng-container>
       <div

@@ -2,19 +2,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px var(--secondary-color-70) solid;
   width: 12rem;
-  border-bottom: 1px var(--secondary-color) solid;
   margin: 0 0 0.7rem 0;
   padding-bottom: 0.6rem;
+
+  &.isActive {
+    border-bottom: 1px var(--secondary-color) solid;
+  }
 }
 
 h1 {
   display: inline-flex;
   margin: 0;
   text-transform: uppercase;
-  color: var(--secondary-color);
   font-weight: 300;
   font-size: 1.15rem;
+  color: var(--secondary-color-70);
+
+  &.isActive {
+    color: var(--secondary-color);
+  }
 }
 
 .actions {
