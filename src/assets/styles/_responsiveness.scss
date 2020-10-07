@@ -1,26 +1,26 @@
 // Small devices (to 750px)
 @media (max-width: 749.98px) {
   html {
-    font-size: 9pt;
+    font-size: 8pt;
   }
 }
 
 // Medium devices (tablets, 750px and up)
 @media (min-width: 750px) and (max-width: 991.98px) {
   html {
-    font-size: 10pt;
+    font-size: 9pt;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) and (max-width: 1369.98px) {
   html {
-    font-size: 11pt;
+    font-size: 10pt;
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+// Extra large devices (large desktops, 1370px and up)
+@media (min-width: 1370px) {
   html {
     font-size: 12pt;
   }

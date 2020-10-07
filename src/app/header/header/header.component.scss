@@ -151,3 +151,16 @@ mat-toolbar {
     }
   }
 }
+
+@media (max-width: 749.98px) and (orientation: landscape) {
+  mat-sidenav {
+    .sidenav-logo {
+      padding-top: 2rem;
+      width: 25%;
+    }
+
+    .sidenav-btn-close {
+      margin-top: 1rem;
+    }
+  }
+}

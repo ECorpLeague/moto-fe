@@ -41,8 +41,16 @@ app-nav-menu {
 
 .content {
   grid-area: content;
+  overflow: hidden;
+  height: 100%;
 }
 
 app-matches-column {
   grid-area: matches;
+}
+
+@media (max-width: 749.98px) {
+  .content {
+    overflow: visible;
+  }
 }
