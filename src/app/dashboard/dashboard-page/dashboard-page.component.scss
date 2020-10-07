@@ -28,6 +28,7 @@ app-dashboard-tournament-info {
 app-dashboard-bracket {
   grid-area: bracket;
   align-self: center;
+  overflow-y: hidden;
 }
 
 .no-results {
@@ -47,6 +48,10 @@ app-dashboard-bracket {
     align-items: center;
     gap: 0;
     row-gap: 1rem;
+  }
+
+  app-dashboard-bracket {
+    overflow-y: visible;
   }
 
   app-matches-column ::ng-deep {
