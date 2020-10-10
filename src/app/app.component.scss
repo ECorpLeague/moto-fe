@@ -4,7 +4,7 @@
     'header'
     'main';
   grid-template-rows: auto 1fr;
-  min-height: 100%;
+  height: 100%;
   width: 100%;
   background-image:
     linear-gradient(
@@ -42,7 +42,7 @@ app-nav-menu {
 .content {
   grid-area: content;
   overflow: hidden;
-  height: 100%;
+  height: inherit;
 }
 
 app-matches-column {
