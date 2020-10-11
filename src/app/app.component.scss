@@ -25,24 +25,20 @@ app-nav-menu {
 .main {
   grid-area: main;
   display: grid;
-  padding: 2rem;
-  gap: 4rem;
+  position: relative;
   width: calc(100% - 4rem);
   height: calc(100% - 4rem);
+  overflow-y: auto;
+  padding: 2rem;
+  gap: 4rem;
   grid-template-areas: 'content matches';
   grid-template-columns: 1fr auto;
-  overflow-y: auto;
-
-  @media (max-width: 749.98px) {
-    grid-template-areas: 'content';
-    grid-template-columns: 1fr;
-  }
 }
 
 .content {
   grid-area: content;
   overflow: hidden;
-  height: inherit;
+  height: 100%;
 }
 
 app-matches-column {
@@ -50,6 +46,13 @@ app-matches-column {
 }
 
 @media (max-width: 749.98px) {
+  .main {
+    grid-template-areas: 'content';
+    grid-template-columns: 1fr;
+    height: calc(100% - 2rem);
+    padding-bottom: 0;
+  }
+
   .content {
     overflow: visible;
   }
