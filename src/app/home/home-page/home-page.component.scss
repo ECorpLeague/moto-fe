@@ -105,8 +105,13 @@
 
 @media (max-width: 749.98px) {
   :host {
-    // 5.25 = header + padding
-    grid-template-rows: calc(100vh - 5.25rem) auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    grid-template-rows: 100% auto;
+    padding: 0 2rem;
   }
 }
 
