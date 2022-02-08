@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { SettingsFacade } from '../../settings/+state/settings.facade';
 import { NewsColumnComponent } from '../news-column/news-column.component';
+import { NewsService } from '../+state/news.service';
 
 @Component({
   selector: 'app-home-page',
@@ -51,7 +52,10 @@ export class HomePageComponent {
   @ViewChild(NewsColumnComponent, { read: ElementRef })
   newsComponent: ElementRef;
 
-  constructor(public settingsFacade: SettingsFacade) {}
+  constructor(
+    public settingsFacade: SettingsFacade,
+    private readonly newsSerivce: NewsService
+  ) {}
 
   scrollToBottom(): void {
     this.newsComponent.nativeElement.scrollIntoView({
@@ -59,5 +63,9 @@ export class HomePageComponent {
       block: 'end',
       inline: 'nearest'
     });
+  }
+
+  ngOnInit(): void {
+    this.newsSerivce.getNews();
   }
 }

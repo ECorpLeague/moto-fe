@@ -66,6 +66,7 @@
     "apollo-angular": "^2.0.4",
     "apollo-angular-link-http": "^1.11.0",
     "apollo-link": "^1.2.14",
+    "contentful": "9.1.7",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "lodash": "^4.17.20",
@@ -88,10 +89,10 @@
     "prettier-tslint": "^0.4.2",
     "stylelint": "^13.7.0",
     "stylelint-config-standard": "^20.0.0",
+    "svg-to-ts": "^5.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5",
-    "svg-to-ts": "^5.0.0"
+    "typescript": "~3.9.5"
   },
   "svg-to-ts": {
     "conversionType": "object",
